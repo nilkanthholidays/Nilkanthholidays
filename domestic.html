@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domestic Destinations - Nilkanth Holidays</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:'Segoe UI', sans-serif; background:#fff;}
+
+    /* Navbar */
+    header {position:absolute; top:0; left:0; width:100%; z-index:1000;}
+    .navbar {max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:30px 20px;}
+    .logo {font-size:22px; font-weight:bold; color:#fff;}
+    nav ul {list-style:none; display:flex; gap:20px;}
+    nav ul li a {text-decoration:none; color:#fff; font-weight:bold; font-size:18px; transition:.3s; position:relative;}
+    nav ul li a:hover {color:#ff8800;}
+    nav ul li a::after {content:""; position:absolute; bottom:-5px; left:0; width:0; height:3px; background:#ff8800; transition:.3s;}
+    nav ul li a:hover::after {width:100%;}
+    .menu-toggle {display:none; flex-direction:column; gap:5px; cursor:pointer;}
+    .menu-toggle span {width:25px; height:3px; background:#fff; border-radius:2px;}
+    @media(max-width:768px){
+      nav {display:none; position:absolute; top:60px; left:0; width:100%; background:rgba(0,0,0,0.8); padding:15px 0;}
+      nav ul {flex-direction:column; align-items:center; gap:15px;}
+      nav.active {display:flex; justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero {position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;}
+    #slideshow {position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;}
+    .slide {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.5s ease-in-out;}
+    .slide.active {opacity:1;}
+    .hero-text {color:#fff; text-shadow:3px 3px 15px rgba(0,0,0,0.8); z-index:5; padding:0 15px;}
+    .hero-text h1 {font-size:3rem; font-weight:900;}
+    .hero-text span {font-size:3rem; font-weight:900; color:#e1de20;}
+    @media(max-width:768px){.hero-text h1,.hero-text span{font-size:2rem;}}
+    @media(max-width:480px){.hero-text h1,.hero-text span{font-size:1.6rem;}}
+
+    /* Product Grid */
+    .product-grid {
+      max-width:1200px;
+      margin:40px auto;
+      padding:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+    .product-card {
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      transition:transform .3s;
+      padding:15px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .product-card:hover{transform:scale(1.03);}
+    .product-card img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:8px;
+    }
+    .product-card h4 {
+      margin:12px 0 6px;
+      font-size:18px;
+      font-weight:bold;
+      text-align:left;
+      width:100%;
+    }
+    .product-card p {
+      font-size:15px;
+      color:#444;
+      margin-top:10px;
+      text-align:left;
+      width:100%;
+      white-space:pre-line;
+      line-height:1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero with Navbar -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <!-- <div class="logo">NILKANTH <span style="color:#ff8800;">HOLIDAYS</span></div> -->
+          <div class="logo-left" style="width:100px;">
+  <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%; height:auto;">
+</div>
+
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Slideshow -->
+     <div id="slideshow">
+      <img src="dubai.jpg" class="slide active" />
+      <img src="sii.jpg" class="slide" />
+      <img src="nepal.jpg" class="slide" />
+      <img src="h1.jpg" class="slide" />
+      <img src="simla.jpg" class="slide" />
+      <img src="Kerala.jpg" class="slide" />
+
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Choose Your Destination <span id="changingText">Dubai</span></h1>
+    </div>
+  </section>
+  
+
+  <!-- Product Grid -->
+  <section class="product-grid" id="productGrid"></section>
+
+  <script>
+    // Navbar toggle
+    document.getElementById("menu-toggle").addEventListener("click",()=> {
+      document.getElementById("nav").classList.toggle("active");
+    });
+
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");
+    let currentSlide=0;
+    setInterval(()=> {
+      slides[currentSlide].classList.remove("active");
+      currentSlide=(currentSlide+1)%slides.length;
+      slides[currentSlide].classList.add("active");
+    },5000);
+
+    // Changing text
+    const places = ["Dubai","Singapore", "Nepal", "Bali", "Shimla", "Kerala"];
+    let i=0;
+    setInterval(()=> {
+      document.getElementById("changingText").textContent=places[i];
+      i=(i+1)%places.length;
+    },5000);
+
+    // ✅ Hardcoded Data (आप यहाँ details add कर सकते हो)
+ const destinations = [
+  {
+    title: "🏖️ Goa Beach",
+    description: "Goa is famous for its stunning beaches, vibrant nightlife, and exciting parties.\nEnjoy water sports, beach shacks, and cultural experiences along the coast.",
+    img: "goa.jpg"
+  },
+  {
+    title: "🏰 Rajasthan",
+    description: "Rajasthan is renowned for its royal history, magnificent forts, and palaces.\nExplore cities like Jaipur, Jodhpur, and Udaipur, and enjoy desert safaris, traditional music, and handicrafts.",
+    img: "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    title: "🌿 Kerala",
+    description: "Kerala, known as 'God’s Own Country', is famous for its lush greenery, serene backwaters, and houseboats.\nExperience spice plantations, ayurvedic treatments, and picturesque landscapes.",
+    img: "kerala.jpg"
+  },
+  {
+    title: "⛰️ Himachal Pradesh",
+    description: "Himachal Pradesh is known for beautiful hill stations like Manali, Shimla, and Dharamshala.\nPerfect for trekking, paragliding, skiing, and exploring snow-capped mountains.",
+    img: "simla.jpg"
+  },
+  {
+    title: "🏔️ Kashmir",
+    description: "Kashmir, the 'Paradise on Earth', offers breathtaking valleys, Dal Lake, skiing at Gulmarg, and charming houseboats.\nEnjoy shikara rides, Mughal gardens, and traditional Kashmiri cuisine.",
+    img: "kl.jpg"
+  },
+  
+  {
+    title: "🏝️ Andaman Islands",
+    description: "The Andaman Islands feature pristine beaches, crystal-clear waters, and vibrant marine life.\nIdeal for scuba diving, snorkeling, island hopping, and relaxing on white sandy beaches.",
+    img: "mal.jpg"
+  },
+  {
+    title: "🚵‍♂️ Leh Ladakh",
+    description: "Leh Ladakh is a high-altitude desert renowned for Pangong Lake, ancient monasteries, and thrilling adventure biking routes.\nPerfect for trekking, river rafting, and experiencing Tibetan culture.",
+    img: "ld.jpg"
+  },
+  
+  // Additional destinations as per your list
+  { title: "🏔️ Uttarakhand", description: "Known for its spiritual sites, hill stations, and adventure sports.\nVisit Rishikesh, Haridwar, and Nainital for a perfect mix of culture and nature.", img: "uttarakhand.jpg" },
+  { title: "🕌 Uttar Pradesh", description: "Home to iconic landmarks like the Taj Mahal in Agra and the holy city of Varanasi.\nExplore historical monuments, ghats, and vibrant local culture.", img: "up.jpg" },
+  { title: "🌳 Meghalaya", description: "Meghalaya is famous for living root bridges, waterfalls, and lush landscapes.\nVisit Shillong, Cherrapunji, and Mawlynnong for nature and adventure.", img: "meghalaya.jpg" },
+  { title: "🏔️ Sikkim", description: "Sikkim offers beautiful mountain landscapes, monasteries, and trekking routes.\nExplore Gangtok, Yumthang Valley, and Gurudongmar Lake.", img: "sikkim.jpg" },
+  { title: "🌄 Arunachal Pradesh", description: "Known for pristine landscapes, rivers, and rich tribal culture.\nVisit Tawang, Ziro Valley, and enjoy adventure tourism.", img: "arunachalpradesh.jpg" },
+  { title: "🌐 Gujarat", description: "Gujarat is famous for its cultural heritage, wildlife, and the Rann of Kutch.\nExplore Gir National Park, Somnath Temple, and vibrant festivals.", img: "gujarat.jpg" },
+  { title: "🏖️ Karnataka", description: "Karnataka features beaches, heritage sites, and hill stations.\nVisit Bangalore, Coorg, Hampi, and Gokarna for a mix of culture, nature, and adventure.", img: "karnataka.jpg" },
+  { title: "🏖️ Tamil Nadu", description: "Tamil Nadu is rich in temples, classical culture, and beautiful coastlines.\nExplore Chennai, Mahabalipuram, Madurai, and hill stations like Ooty.", img: "tamilnadu.jpg" },
+  { title: "🏝️ Andaman and Nicobar Islands", description: "A tropical paradise with amazing beaches, scuba diving, and water sports.\nPerfect for leisure, adventure, and island hopping.", img: "aan.jpg" }
+];
+
+
+
+    const productGrid = document.getElementById("productGrid");
+    destinations.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.img}" alt="${product.title}">
+        <h4>${product.title}</h4>
+        <p>${product.description}</p>
+      `;
+      productGrid.appendChild(card);
+    });
+  </script>
+  <!-- ✅ Inline CSS Footer -->
+<footer style="background:#000; color:#fff; padding:40px 20px 20px; margin-top:40px;">
+  <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
+    
+    <!-- Column 1 -->
+    <div>
+      <h3 style="margin-bottom:15px; color:#ff8800;">NILKANTH <span style="color:#fff;">HOLIDAYS</span></h3>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">
+        Best travel experiences with customized packages and amazing destinations.
+      </p>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Quick Links</h4>
+        <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="text-decoration:none; color:#ccc;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="domestic.html" style="text-decoration:none; color:#ccc;">Domestic</a></li>
+        <li style="margin-bottom:8px;"><a href="Internatinol.html" style="text-decoration:none; color:#ccc;">Internatinol</a></li>
+        <li style="margin-bottom:8px;"><a href="about.html" style="text-decoration:none; color:#ccc;">About</a></li>
+        <li style="margin-bottom:8px;"><a href="packages.html" style="text-decoration:none; color:#ccc;">Packages</a></li>
+        <li style="margin-bottom:8px;"><a href="contact.html" style="text-decoration:none; color:#ccc;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Contact Us</h4>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Email: info@nilkanthholidays.in</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 63538 53297</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 88666 53297</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Address: Second Floor, Satva Complex, 204, NR Sindhu Bhavan Rd, Thaltej, Ahmedabad, Gujarat 380059</p>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div style="text-align:center; margin-top:20px; border-top:1px solid #333; padding-top:15px; font-size:13px; color:#999;">
+    © 2025 Nilkanth Holidays. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>

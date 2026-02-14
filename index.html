@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NILKANTH HOLIDAYS</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+    body {line-height: 1.6;}
+
+    /* Navbar */
+    header {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: transparent;
+      box-shadow: none;
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+      position: relative;
+      font-size: 18px;
+    }
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #ff8800;
+      transition: width 0.3s;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+    nav ul li a:hover {
+      color: #ff8800;
+    }
+
+    /* Hamburger Icon */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    #slideshow {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .hero-text {
+      color: #fff;
+      text-shadow: 3px 3px 15px rgba(0,0,0,0.8);
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 0 15px;
+      text-align: center;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+    .hero-text span {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #e1de20;
+    }
+
+    /* Responsive Navbar */
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 15px 0;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      nav.active {
+        display: flex;
+        justify-content: center;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Hero Responsive */
+    @media(max-width:768px) {
+      .hero-text h1,
+      .hero-text span {
+        font-size: 2rem;
+      }
+    }
+    @media(max-width:480px) {
+      .hero-text h1,
+      .hero-text span {
+        font-size: 1.6rem;
+      }
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 40px;
+      font-weight: 800;
+     
+    }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin: 40px auto;
+      padding: 0 40px;
+      max-width: 90%;
+      
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.50s ease;
+      width: max-content;
+      animation: scrollImages 60s linear infinite;
+    }
+
+    @keyframes scrollImages {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+      color: white;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card {
+        width: 220px;
+        height: 360px;
+      }
+      .carousel-container {
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 180px;
+        height: 300px;
+      }
+    }
+    
+    
+.travel-body1 {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .travel-title1 {
+      text-align: center;
+      font-size: 2em;
+      margin: 30px 0 20px;
+      font-weight: 800;
+    }
+
+    /* Month buttons */
+    .month-buttons1 {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .month-buttons1 button {
+      padding: 12px 28px;
+      border: 2px solid #000;
+      background: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .month-buttons1 button.active1,
+    .month-buttons1 button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* Arrow for active button */
+    .month-buttons1 button.active1::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 12px solid #000;
+    }
+
+    /* Image grid (responsive) */
+    .places-grid1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px 50px;
+    }
+
+    .card1 {
+      width: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      background: #fff;
+      transition: transform 0.3s;
+    }
+
+    .card1:hover {
+      transform: translateY(-8px);
+    }
+
+    .card1 {
+  width: 280px; /* pehle 260px tha */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  background: #fff;
+  transition: transform 0.3s;
+}
+
+.card1 img {
+  width: 100%;
+  height: 220px; /* pehle 180px tha */
+  object-fit: cover;
+  display: block;
+}
+
+
+    .card-title1 {
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    @media(max-width: 768px) {
+      .card1 {
+        width: 45%;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .card1 {
+        width: 100%;
+      }
+    }
+
+
+
+   
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+  <!-- Hero + Navbar -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <!-- <div class="logo">NILKANTH <span style="color:#ff8800;">HOLIDAYS</span></div> -->
+     <div class="logo-left" style="width:100px;">
+  <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%; height:auto; margin-right: 500px;">
+</div>
+
+
+        <!-- Hamburger Icon -->
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- Navbar Links -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Background Slideshow -->
+    <div id="slideshow">
+      <img src="dubai.jpg" class="slide active" />
+      <img src="sii.jpg" class="slide" />
+      <img src="nepal.jpg" class="slide" />
+      <img src="h1.jpg" class="slide" />
+      <img src="simla.jpg" class="slide" />
+      <img src="Kerala.jpg" class="slide" />
+
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Choose Your Destination  </h1>
+      <span id="changingText">Dubai</span>
+    </div>
+  </section>
+  
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Repeat cards for smooth scrolling -->
+      <div class="card">
+        <img src="m.jpg" alt="Meghalaya">
+        <div class="card-title">Meghalaya</div>
+      </div>
+      <div class="card">
+        <img src="an.jpg" alt="Andaman Nicobar">
+        <div class="card-title">Andaman Nicobar</div>
+      </div>
+      <div class="card">
+        <img src="ld.jpg" alt="Leh Ladakh">
+        <div class="card-title">Leh Ladakh</div>
+      </div>
+      <div class="card">
+        <img src="hp.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Himachal Pradesh</div>
+      </div>
+      <div class="card">
+        <img src="kl.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Kulla Manali</div>
+      </div>
+      <div class="card">
+        <img src="r.jpg" alt="Himachal Pradesh">
+        <div class="card-title"> Rajasthan</div>
+      </div>
+      <div class="card">
+        <img src="k.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Kerala</div>
+      </div>
+      <div class="card">
+        <img src="g.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Goa</div>
+      </div>
+
+      <!-- Duplicate for smooth scroll loop -->
+      <div class="card">
+        <img src="th.jpg" alt="Meghalaya">
+        <div class="card-title">Thailand</div>
+      </div>
+      <div class="card">
+        <img src="ne.jpg" alt="Andaman Nicobar">
+        <div class="card-title">Nepal</div>
+      </div>
+      <div class="card">
+        <img src="sh.jpg" alt="Leh Ladakh">
+        <div class="card-title">Sri Lanka</div>
+      </div>
+      <div class="card">
+        <img src="vt.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Vietnam</div>
+      </div>
+      <div class="card">
+        <img src="eg.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Egypt</div>
+      </div>
+      <div class="card">
+        <img src="bhu.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Bhutan</div>
+      </div>
+      <div class="card">
+        <img src="mal.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Maldives</div>
+      </div>
+      <div class="card">
+        <img src="tk.jpg" alt="Himachal Pradesh">
+        <div class="card-title">Turkey</div>
+      </div>
+    </div>
+     
+
+  <!-- Month Buttons -->
+  
+  <body class="travel-body1">
+
+  <h2 class="travel-title1">Choose Our Suggestions<br>Best Travel Destination by Month</h2>
+
+  <!-- Month Buttons -->
+  <div class="month-buttons1">
+    <button class="active1" onclick="showPlaces1('janmar', event)">Jan to Mar</button>
+    <button onclick="showPlaces1('aprjun', event)">Apr to June</button>
+    <button onclick="showPlaces1('julsep', event)">July to Sept</button>
+    <button onclick="showPlaces1('octdec', event)">Oct to Dec</button>
+  </div>
+
+  <!-- Grid -->
+  <div class="places-grid1" id="placesGrid1"></div>
+  
+
+
+  
+
+
+<html lang="en">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      
+      <!-- Contact Form -->
+      <div class="flex flex-col justify-center">
+        
+
+        <!-- Success/Error Message -->
+        <div id="statusMessage" class="hidden mb-4 text-center p-3 rounded-lg"></div>
+
+        <!-- ✅ Important: Form Action -->
+       <section class="flex items-center justify-center py-12 px-4 bg-gray-100">
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-6">📩 Contact Us</h2>
+
+      <!-- ✅ WhatsApp Form -->
+      <form id="contactForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input type="text" id="name" name="name" required
+                 class="w-full px-3 py-2 mt-1 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full px-3 py-2 mt-1 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500">
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea id="message" name="message" rows="4" required
+                    class="w-full px-3 py-2 mt-1 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500"></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-gradient-to-r from-green-600 to-green-800 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:from-green-700 hover:to-green-900 transition">
+          Send on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+      </div>
+
+      <!-- Office Location -->
+      <div class="flex flex-col justify-center">
+  <h2 class="text-2xl font-bold text-center mb-6">📍 Our Office</h2>
+  <div class="text-gray-700 text-center mb-4">
+    <p class="font-semibold">Nilkanth Holidays</p>
+    <p>Second Floor, Satva Complex, 204, NR Sindhu Bhavan Rd, Thaltej, Ahmedabad, Gujarat 380059</p>
+    <p>Gujarat, India</p>
+    <p>📞 +91 63538 53297</p>
+    <p>📞 +91 88666 53297</p>
+
+  </div>
+  <div class="overflow-hidden rounded-lg shadow-lg map-responsive">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.55123456789!2d72.5056085!3d23.0479272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8530064d2713%3A0x30ba0e8054dbf273!2sNilkanth%20Holidays!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+      width="100%" height="300" style="border:0;"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <!-- Footer -->
+<!-- Simple Footer -->
+
+
+</body>
+
+  </div>
+   
+  <script>
+    // Background slideshow
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 5000);
+
+    // Auto changing text
+   const places = ["Dubai","Singapore", "Nepal", "Bali", "Shimla", "Kerala"];
+    let i=0;
+    setInterval(()=> {
+      document.getElementById("changingText").textContent=places[i];
+      i=(i+1)%places.length;
+    },5000);
+
+
+ 
+  // ... your existing slideshow + text code
+
+  const data1 = {
+    janmar: [
+      { name: "Kazakhstan", img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" },
+      { name: "Bhutan", img: "bhu.jpg" },
+      { name: "Jaisalmer", img: "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=600&q=80" },
+      { name: "Halong Bay", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" },
+      { name: "Bali", img: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=600&q=80" },
+      { name: "Kashmir", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" },
+    ],
+    aprjun: [
+      { name: "Switzerland", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" },
+  { name: "Ooty, India", img: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=600&q=80" },
+  { name: "Himachal, India", img: "simla.jpg" },
+  { name: "Bali, Indonesia", img: "bali.jpg" },
+  { name: "Ladakh, India", img: "ld.jpg" },
+  { name: "Maldives", img: "mal.jpg" },
+    ],
+   julsep: [
+  { name: "Leh Ladakh", img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" },
+  { name: "Shillong", img: "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=80" },
+  { name: "Valley of Flowers", img: "va.jpg" },
+  { name: "Kerala (Munnar)", img: "k.jpg" },
+  { name: "Coorg", img: "co.jpg" },
+  { name: "Goa", img: "g.jpg" }
+],
+   octdec: [
+  { name: "Varanasi", img: "varanasi.jpg" },
+  { name: "Udaipur", img: "r.jpg" },
+  { name: "Rann of Kutch", img: "rann.jpg" },
+  { name: "Jaipur", img: "j.jpg" },
+  { name: "Goa", img: "goa.jpg" },
+  { name: "Andaman Islands", img: "an.jpg" }
+]
+  };
+
+  function showPlaces1(month, e) {
+    const grid = document.getElementById("placesGrid1");
+    grid.innerHTML = "";
+    data1[month].forEach(place => {
+      const card = document.createElement("div");
+      card.className = "card1";
+      card.innerHTML = `
+        <img src="${place.img}" alt="${place.name}">
+        <div class="card-title1">${place.name}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Active button update
+    if (e) {
+      document.querySelectorAll(".month-buttons1 button").forEach(btn => btn.classList.remove("active1"));
+      e.target.classList.add("active1");
+    }
+  }
+
+  // ✅ Load default (Jan–Mar) images on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    showPlaces1("janmar");
+  });
+
+
+    // Default load
+    // Show status message if redirected with query string
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get("status");
+    if (status) {
+      const msgDiv = document.getElementById("statusMessage");
+      msgDiv.classList.remove("hidden");
+      if (status === "success") {
+        msgDiv.textContent = "✅ Your message was sent successfully!";
+        msgDiv.classList.add("bg-green-100", "text-green-700");
+      } else if (status === "error") {
+        msgDiv.textContent = "❌ Sorry, your message could not be sent.";
+        msgDiv.classList.add("bg-red-100", "text-red-700");
+      }
+
+      // Clear form after redirect
+      document.getElementById("contactForm").reset();
+      // Remove query string from URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+   
+  // Hamburger menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+  function sendToWhatsApp(event) {
+  event.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+
+  var text = "Name: " + name + "%0aEmail: " + email + "%0aMessage: " + message;
+
+  // ✅ सही नंबर + नया tab
+  var whatsappURL = "https://wa.me/916353853297?text=" + text;
+  window.open(whatsappURL, '_blank');
+}
+
+
+
+     </script>
+     
+<!-- ✅ Inline CSS Footer -->
+<footer style="background:#000; color:#fff; padding:40px 20px 20px; margin-top:40px;">
+  <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
+    
+    <!-- Column 1 -->
+    <div>
+      <h3 style="margin-bottom:15px; color:#ff8800;">NILKANTH <span style="color:#fff;">HOLIDAYS</span></h3>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">
+        Best travel experiences with customized packages and amazing destinations.
+      </p>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Quick Links</h4>
+      <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="text-decoration:none; color:#ccc;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="domestic.html" style="text-decoration:none; color:#ccc;">Domestic</a></li>
+        <li style="margin-bottom:8px;"><a href="Internatinol.html" style="text-decoration:none; color:#ccc;">Internatinol</a></li>
+        <li style="margin-bottom:8px;"><a href="about.html" style="text-decoration:none; color:#ccc;">About</a></li>
+        <li style="margin-bottom:8px;"><a href="packages.html" style="text-decoration:none; color:#ccc;">Packages</a></li>
+        <li style="margin-bottom:8px;"><a href="contact.html" style="text-decoration:none; color:#ccc;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Contact Us</h4>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Email: info@nilkanthholidays.in</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 63538 53297</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 88666 53297</p>
+     
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Address: Second Floor, Satva Complex, 204, NR Sindhu Bhavan Rd, Thaltej, Ahmedabad, Gujarat 380059</p>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div style="text-align:center; margin-top:20px; border-top:1px solid #333; padding-top:15px; font-size:13px; color:#999;">
+    © 2025 Nilkanth Holidays. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>

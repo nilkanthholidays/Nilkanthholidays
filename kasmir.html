@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <h2 style="text-align:center;margin:30px 0;">Choose Your Itinerary(Kashmir)</h2>
+  <div class="filter-buttons">
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days</button>
+    <button onclick="showItinerary('7N8D')">7 Nights / 8 Days</button>
+    <button onclick="showItinerary('8N9D')">8 Nights / 9 Days</button>
+    <button onclick="showItinerary('9N10D')">9 Nights / 10 Days</button>
+    <button onclick="showItinerary('12N13D')">12 Nights / 13 Days</button>
+  </div>
+
+  <!-- Itineraries from Word file -->
+<div id="itinerary-5N6D" class="itinerary">
+  <div class="accordion"><div class="accordion-header">Day 01: ARRIVE JAMMU & TRANSFER TO PAHALGAM <span>+</span></div><div class="accordion-content">Arrive to jammu Airport / Railway station and then our cab driver will meet you outside Airport / Railway station as our cab won’t be allowed to enter the Airport / Railway station by the association members, you have to take either auto rickshaw or cab by our own from Airport / Railway station to reach to our driver and then your journey will start towards Pahalgam, the valley of shepherds Drive through the pine forest and along lidder river. The total distance of 280 kms will be covered in about 7 hours Pahalgam is the most famous place for Indian film industry. Overnight stay in hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: PAHALGAM – SRINAGAR <span>+</span></div><div class="accordion-content">After breakfast sightseen in pahalgam. Pahalgam the valley of shepherds and the most famous place for Indian film industry. One can visit Amusement park Aru, Betab valley and ChandanVari (By Local Taxi of Your Own) & one can enjoy horse riding / Trekking (which is excluded in the package). In the evening transfer to Srinagar & overnight stay in hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: SRINAGAR – GULMARG – SRINAGAR <span>+</span></div><div class="accordion-content">After breakfast drive to Gulmarg the meadows of flowers 2730 mtrs, above sea level. The distance of 60 kms will be covered in 2 hours it has delightfull ski slopes and the highest 18 whole golf course of the world. If wheatherpermits, you can also have view of Nanga Parbat.The view enrote from Tangmarg to Gulmarg is magnificent. Evening back to Srinagar overnight stay in hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: SRINAGAR – SONAMARG – SRINAGAR <span>+</span></div><div class="accordion-content">After breakfast drive to sonmarg which is the most beautiful drive from Srinagar. On the way we stop at many beautiful spots. Continue drive to sonmarg the total distance of 80 kms will be covered in 3 hours. Sonamarg is also the takeoff station for the drive to ladakh across the Zojila, a major pass in the great himalayan range, sonmarg is known as gateway of ladakh. In the evening return to srinagar overnight stay in houseboat…</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: SRINAGAR – DOODPATHRI – SRINAGAR <span>+</span></div><div class="accordion-content">After Breakfast, your journey will start towards doodhpatri, the total distance of 40 km located in central kashmir district Budgam, on this day do the local sightseeing there and in the evening travel back to srinagar overnight stay in the houseboat.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: DEPARTURE <span>+</span></div><div class="accordion-content">This morning after breakfast departure to Jammu Airport/ Railway station for your onwards safe journey.</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01: Arrival – Srinagar <span>+</span></div><div class="accordion-content">Welcome to Srinagar Airport. You will meet our representative and get transferred to Hotel. Check-in Hotel. After relaxing, visit Shankaracharya Temple in the evening and enjoy a beautiful evening at Srinagar. Overnight stay in the Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: Gulmarg Day Trip <span>+</span></div><div class="accordion-content">Today post breakfast, drive to Gulmarg (Meadow of Flowers) 2730 Mts. above sea level. The distance of 56 kms will be covered in about 2 hrs. Gulmarg has one of the best Ski slopes in the world and highest golf course of the world with 18 holes. One can also have the view of Nanga Parbhat if weather permits. The View enroute from Tangmarg to Gulmarg is fascinating. One can also have a short trek upto Khilangmarg which can be covered in about 3 to 4 hrs or enjoy a cable car ride which takes to the highest point. the hotel evening return back to srinagar. Overnight at Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: Sonmarg Day Trip <span>+</span></div><div class="accordion-content">After breakfast leave for Sonamarg for a Day trip the name Sonamarg is derived from two Kashmiri words “Son” & “Marg” which mean “Gold” & “Meadow”, when put together it means “Meadow of Gold” The drive from Srinagar to Sonamarg is very beautiful as you will pass through some towns and villages, at many places you can enjoy the view of paddy fields with rivers flowing on one side. in Sonamarg you can visit Thajiwas Glacier which is around 4Kms from Sonamarg. (Pony Ride has to be hired Own Cost) return back to Srinagar in the evening after enjoying your day, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: Srinagar - Pahalgam <span>+</span></div><div class="accordion-content">Today you will be transferred by road to Pahalgam. Valley of Shepherds. En route, you will have a rare opportunity to visit the Saffron fields. Also, visit Awantipura Ruins & Anantnag Sulpher Springs enroute, Visit to Bisaran (Pony Ride has to be hired at Own Cost). Arrive and proceed to your hotel, Dinner & overnight at the Pahalgam.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: Inn Pahalgam <span>+</span></div><div class="accordion-content">After Breakfast, Visit Aru Valley, Betab Valley, Chandanwadi (Local union taxi has to be hired at Own Cost) The snow Point (14 Km) at your own cost or enjoy a pony ride at your own cost, Return back to Pahalgam, the rest of the day at leisure to explore the countryside and enjoy leisurely walks through the pine forest along the River Lidder. Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: Pahalgam - Srinagar - Local Sightseeing <span>+</span></div><div class="accordion-content">After breakfast transfer to Srinagar. Visit Shankaracharya Temple & PariMahal & Palace of Fairies& (is a seven terraced garden located at the top of Zabarwan mountain range over-looking city of Srinagar and south-west of Dal Lake) Then visit Chesham Shahi (is one of the Mughal gardens built in 1632 AD around a spring by Ali Mardan Khan, a governor of Mughal emperor Shah Jahan as per the orders of the Emperor, as a gift for his elder son Prince DaraShikoh) you will also visit Nishat Garden known as & Garden of pleasure & built-in 16th century (1633) by Mughal King Asif Khan. Then visit Shalimar Garden known as & Garden of love & built-in the 16th century (1619) by Mughal King Jehangir for his beloved wife Noor Jehan or (Mehr-un Nissa) evening enjoy Shikara ride on the world-famous Dal Lake in which you will cover, Floating Gardens, Vegetable Gardens, Golden Lake, Inner markets like Mena Bazar, and Canals, etc, also enjoy the scenic view of Zabarwan Mountains, evening free for leisure, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: Departure <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from Kashmir and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01: Arrival – Srinagar <span>+</span></div><div class="accordion-content">Welcome to Srinagar Airport. You will meet our representative and get transferred to Hotel. Check-in Hotel. After relaxing, visit Shankaracharya Temple in the evening and enjoy a beautiful evening at Srinagar. Overnight stay in the Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: Srinagar To Gulmarg <span>+</span></div><div class="accordion-content">Srinagar to Gulmarg “Meadow of Flowers” Discovered by the Kashmiri romantic poet in the 16th century who was inspired by its grassy slopes covered with wildflowers. In winter Gulmarg looks more beautiful due to heavy snowfall. It turns into India & premier Ski resort in winter. After check in, leave with your guide for some adventure activity in Gulmarg. Overnight stay at Gulmarg.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: Inn Gulmarg <span>+</span></div><div class="accordion-content">After breakfast, you will leave for a Gondola ride (Own Cost) in the highest cable car corporation in the world. After that you will spend your rest of the day by visiting places like the Golf course, Maharaja palace, children’s park and also see some good place’s there. Overnight stay at Gulmarg.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: Gulmarg - Pahalgam <span>+</span></div><div class="accordion-content">Today you will be transferred by road to Pahalgam. Valley of Shepherds. En route, you will have a rare opportunity to visit the Saffron fields. Also, visit Awantipura Ruins & Anantnag Sulpher Springs enroute, Visit to Bisaran (Pony Ride has to be hired at Own Cost). Arrive and proceed to your hotel, Dinner & overnight at the Pahalgam.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: Inn Pahalgam <span>+</span></div><div class="accordion-content">After Breakfast, Visit Aru Valley, Betab Valley, Chandanwadi (Local union taxi has to be hired at Own Cost) The snow Point (14 Km) at your own cost or enjoy a pony ride at your own cost, Return back to Pahalgam, the rest of the day at leisure to explore the countryside and enjoy leisurely walks through the pine forest along the River Lidder. Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: Pahalgam - Srinagar - Local Sightseeing <span>+</span></div><div class="accordion-content">After breakfast transfer to Srinagar. Visit Shankaracharya Temple & PariMahal & Palace of Fairies& (is a seven terraced garden located at the top of Zabarwan mountain range over-looking city of Srinagar and south-west of Dal Lake) Then visit Chesham Shahi (is one of the Mughal gardens built in 1632 AD around a spring by Ali Mardan Khan, a governor of Mughal emperor Shah Jahan as per the orders of the Emperor, as a gift for his elder son Prince DaraShikoh) you will also visit Nishat Garden known as & Garden of pleasure & built-in 16th century (1633) by Mughal King Asif Khan. Then visit Shalimar Garden known as & Garden of love & built-in the 16th century (1619) by Mughal King Jehangir for his beloved wife Noor Jehan or (Mehr-un Nissa) evening enjoy Shikara ride on the world-famous Dal Lake in which you will cover, Floating Gardens, Vegetable Gardens, Golden Lake, Inner markets like Mena Bazar, and Canals, etc, also enjoy the scenic view of Zabarwan Mountains, evening free for leisure, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: Sonmarg Day Trip <span>+</span></div><div class="accordion-content">After breakfast leave for Sonamarg for a Day trip the name Sonamarg is derived from two Kashmiri words “Son” & “Marg” which mean “Gold” & “Meadow”, when put together it means “Meadow of Gold” The drive from Srinagar to Sonamarg is very beautiful as you will pass through some towns and villages, at many places you can enjoy the view of paddy fields with rivers flowing on one side. in Sonamarg you can visit Thajiwas Glacier which is around 4Kms from Sonamarg. (Pony Ride has to be hired at Own Cost) return back to Srinagar in the evening after enjoying your day, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08: Departure <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from Kashmir and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01: Katra Arrival <span>+</span></div><div class="accordion-content">Welcome to Katra Railway Station pickup. You will meet our representative and get transferred to Hotel. Check-in Hotel. Overnight stay in the Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: Katra <span>+</span></div><div class="accordion-content">After breakfast visit Mata Vaishno Devi Mandir(Own Cost for Palki, Helicopter, Horse Ride)</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: Katra to Pahalgam <span>+</span></div><div class="accordion-content">After breakfast you will drive to Pahalgam. Valley of Shepherds. Check in the hotel. The rest of the day at leisure to explore the countryside and enjoy leisurely walks through the pine forest along the River Lidder. Overnight stay at Pahalgam.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: Pahalgam To Srinagar <span>+</span></div><div class="accordion-content">Today you will be transferred by road to Srinagar. En route, you will have a rare opportunity to visit the Saffron fields. Also, visit Awantipura Ruins & Anantnag Sulpher Springs en route, Visit Chandanwadi, The Snow Point (14 Km) at your own cost or enjoy a pony ride at your own cost, Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: Gulmarg Day Trip <span>+</span></div><div class="accordion-content">Today post breakfast, drive to Gulmarg (Meadow of Flowers) 2730 Mts. above sea level. The distance of 56 kms will be covered in about 2 hrs. Gulmarg has one of the best Ski slopes in the world and highest golf course of the world with 18 holes. One can also have the view of Nanga Parbhat if weather permits. The View enroute from Tangmarg to Gulmarg is fascinating. One can also have a short trek upto Khilangmarg which can be covered in about 3 to 4 hrs or enjoy a cable car ride which takes to the highest point. the hotel evening return back to srinagar. Overnight at Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: Sonmarg Day Trip <span>+</span></div><div class="accordion-content">After breakfast leave for Sonamarg for a Day trip the name Sonamarg is derived from two Kashmiri words “Son” & “Marg” which mean “Gold” & “Meadow”, when put together it means “Meadow of Gold” The drive from Srinagar to Sonamarg is very beautiful as you will pass through some towns and villages, at many places you can enjoy the view of paddy fields with rivers flowing on one side. in Sonamarg you can visit Thajiwas Glacier which is around 4Kms from Sonamarg. (Pony Ride has to be hired Own Cost) return back to Srinagar in the evening after enjoying your day, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: Srinagar Local Sightseeing <span>+</span></div><div class="accordion-content">After breakfast transfer to Srinagar. Visit PariMahal & Palace of Fairies& (is a seven terraced garden located at the top of Zabarwan mountain range over-looking city of Srinagar and south-west of Dal Lake) Then visit Chesham Shahi (is one of the Mughal gardens built in 1632 AD around a spring by Ali Mardan Khan, a governor of Mughal emperor Shah Jahan as per the orders of the Emperor, as a gift for his elder son Prince DaraShikoh) you will also visit Nishat Garden known as & Garden of pleasure & built-in 16th century (1633) by Mughal King Asif Khan. Then visit Shalimar Garden known as & Garden of love & built-in the 16th century (1619) by Mughal King Jehangir for his beloved wife Noor Jehan or (Mehr-un Nissa) evening enjoy Shikara ride on the world-famous Dal Lake in which you will cover, Floating Gardens, Vegetable Gardens, Golden Lake, Inner markets like Mena Bazar, and Canals, etc, also enjoy the scenic view of Zabarwan Mountains, evening free for leisure, overnight stay in Houseboat at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08: Srinagar to Katra <span>+</span></div><div class="accordion-content">After breakfast transfer to Katra. Check in the hotel. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09: Departure <span>+</span></div><div class="accordion-content">After breakfast drop the Katra railway station.</div></div>
+</div>
+
+<div id="itinerary-9N10D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01: ARRIVAL – KATRA <span>+</span></div><div class="accordion-content">Welcome to Katra. Upon arrival our representative will assist you with the hotel check in. Rest of the day is for leisure. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: KATRA – MATA VAISHNODEVI DARSHAN - KATRA <span>+</span></div><div class="accordion-content">After breakfast, start your Holy Journey to Mata Vaisnodevi Darshan. Mata Vaishno Devi temple is one of the holiest Hindu temples dedicated to Shakti and is the second most visited religious shrine in India after Tirupati Balaji Temple. Take a trek to Mata Vaishno Devi shrine (14 km), ponies can also be arranged by self (at your own cost) for the trek, return back to Katra late in evening/night. Dinner and Overnight stay at hotel in Katra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: Katra - Shivkhori – Katra <span>+</span></div><div class="accordion-content">Early morning after breakfast, proceed for Shiv Khori - the Holy Cave abode of Lord Shiva situated at a distance of 70 Kms from Katra. The cave is a real wonder to be seen and measures nearly half a kilometer in length with a 4 feet high naturally formed Shiv-lingam at the heart of the Sanctum Sanctorum. Have darshans of Lord Shiva and back to Katra in the evening. If time permits, en route, visit Siar Baba waterfalls, Baba Dhansal & Nau Devis. Overnight stay at Katra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: KATRA – SRINAGAR <span>+</span></div><div class="accordion-content">After breakfast leave for Srinagar You Check-in Hotel. After relax visit Shankaracharya Temple in the evening enjoy beautiful evening at Srinagar. Overnight stay in the Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: SONAMARG DAY TRIP <span>+</span></div><div class="accordion-content">After breakfast leave for Sonamarg for a Day trip the name Sonamarg is derived from two Kashmiri words “Son” & “Marg” which mean “Gold” & “Meadow”, when put together it means “Meadow of Gold” The drive from Srinagar to Sonamarg is very beautiful as you will pass through some towns and villages, at many places you can enjoy the view of paddy fields with rivers flowing on one side. in Sonamarg you can visit Thajiwas Glacier which is around 4Kms from Sonamarg a Local Taxi Or Pony Ride has to be hired) return back to Srinagar in the evening after enjoying your day, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: SRINAGAR TO GULMARG <span>+</span></div><div class="accordion-content">After breakfast proceed to Gulmarg “Meadow of Flowers” Discovered by the Kashmiri romantic poet in the 16th century who was inspired by its grassy slopes covered with wildflowers. In winter Gulmarg looks more beautiful due to heavy snowfall. And turns into India & premier Ski resort in winter. Gulmarg has one of the best ski slopes in the world and the highest golf course with 18 holes, Gulmarg you also can enjoy Gondola Cable Car(Own Cost) offers rides to the upland meadows of Kongdori and beyond to the top of Apharwat range to a height of 14000 ft for viewing the Himalayan Peaks in summer and for downhill skiing in winter, in the evening overnight stay in Hotel Khaleel Palace Gulmarg.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: Gulmarg - Pahalgam <span>+</span></div><div class="accordion-content">Today you will be transferred by road to Pahalgam. Valley of Shepherds. En route, you will have a rare opportunity to visit the Saffron fields. Also, visit Awantipura Ruins & Anantnag Sulpher Springs en route, Arrive and proceed to your hotel, Dinner & overnight at the Pahalgam.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08: Pahalgam Local Sightseeing <span>+</span></div><div class="accordion-content">After Breakfast, Visit Aruvalley, Betab Valley & Chandanwadi(Own Cost), The snow Point (14 Km) at your own cost or enjoy a pony ride at your own cost, Return back to Pahalgam, the rest of the day at leisure to explore the countryside and enjoy leisurely walks through the pine forest along the River Lidder. Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09: Pahalgam To Srinagar & Srinagar LocalSightseeing <span>+</span></div><div class="accordion-content">After breakfast transfer to Srinagar. Visit PariMahal & Palace ofFairies& (is a seven terraced garden located at the top of Zabarwanmountain range over-looking city of Srinagar and south-west of Dal Lake) Thenvisit Chesham Shahi (is one of the Mughal gardens built in 1632 AD around aspring by Ali Mardan Khan, a governor of Mughal emperor Shah Jahan as per theorders of the Emperor, as a gift for his elder son Prince DaraShikoh) you willalso visit Nishat Garden known as & Garden of pleasure & built-in 16thcentury (1633) by Mughal King Asif Khan. Then visit Shalimar Garden known as& Garden of love & built-in the 16th century (1619) by Mughal KingJehangir for his beloved wife Noor Jehan or (Mehr-un Nissa) evening enjoyShikara ride on the world-famous Dal Lake in which you will cover, FloatingGardens, Vegetable Gardens, Golden Lake, Inner markets like Mena Bazar, andCanals, etc, also enjoy the scenic view of Zabarwan Mountains, evening free forleisure, overnight stay in Houseboat at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 10: DEPARTURE <span>+</span></div><div class="accordion-content">After breakfast get a transfer to Srinagar Airport for further next destination back Home.</div></div>
+</div>
+
+<div id="itinerary-12N13D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01: SRINAGAR - GULMARG <span>+</span></div><div class="accordion-content">Welcome to Srinagar Airport pickup. You will meet our representative and get a drive to Gulmarg (Meadow of Flowers) 2730 Mts. above sea level. The distance of 56 kms will be covered in about 2 hrs. Gulmarg has one of the best Ski slopes in the world and the highest golf course of the world with 18 holes. One can also have the view of Nanga Parbhat if weather permits. The View enroute from Tangmarg to Gulmarg is fascinating. One can also have a short trek upto Khilanmarg which can be covered in about 3 to 4 hrs or enjoy a cable car ride which takes to the highest point. Overnight at the Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02: GULMARG – PAHALGAM <span>+</span></div><div class="accordion-content">Today you will be transferred by road to Pahalgam. Valley of Shepherds. En route, you will have a rare opportunity to visit the Saffron fields. Also, visit Awantipura Ruins & Anantnag Sulpher Springs en route, Arrive and proceed to your hotel, Dinner & overnight at the Pahalgam.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03: INN PAHALGAM <span>+</span></div><div class="accordion-content">After Breakfast, Visit Aru Valley, Betab Valley & Chandanwadi(Own Cost), The snow Point (14 Km) at your own cost or enjoy a pony ride at your own cost, Return back to Pahalgam, the rest of the day at leisure to explore the countryside and enjoy leisurely walks through the pine forest along the River Lidder. Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04: PAHALGAM TO SRINAGAR & SRINAGAR LOCAL SIGHTSEEING <span>+</span></div><div class="accordion-content">After breakfast Visit PariMahal & Palace of Fairies& (is a seven terraced garden located at the top of Zabarwan mountain range over-looking city of Srinagar and south-west of Dal Lake) Then visit Chesham Shahi (is one of the Mughal gardens built in 1632 AD around a spring by Ali Mardan Khan, a governor of Mughal emperor Shah Jahan as per the orders of the Emperor, as a gift for his elder son Prince DaraShikoh) you will also visit Nishat Garden known as & Garden of pleasure & built-in 16th century (1633) by Mughal King Asif Khan. Then visit Shalimar Garden known as & Garden of love & built-in the 16th century (1619) by Mughal King Jehangir for his beloved wife Noor Jehan or (Mehr-un Nissa) evening enjoy Shikara ride on the world-famous Dal Lake in which you will cover, Floating Gardens, Vegetable Gardens, Golden Lake, Inner markets like Mena Bazar, and Canals, etc, also enjoy the scenic view of Zabarwan Mountains, evening free for leisure, overnight stay in Hotel at Srinagar.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05: SRINAGAR TO DOODHPATHRI TO SRINAGAR <span>+</span></div><div class="accordion-content">After breakfast check out from the Houseboat and transfer to Srinagar Hotel. After refreshments, proceed to visit Doodhpathri.The Valley of Kashmir still holds many beautiful secrets. One of these is the Valley of Doodhpathri in Srinagar. We went there this May. The snow caps on the surrounding mountains had still not melted. The floor of the valley was still covered with snow. The snow on the slopes surrounding the valley had however melted and were now covered with lush green grass. The magical color play of brown mud, shiny green grass and pure white snow looked enchanting!Overnight stay at Srinagar Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: SRINAGAR TO KARGIL VIA SONMARG <span>+</span></div><div class="accordion-content">After Breakfast, we will proceed for Kargil. En-route cross Zero point Zojila Pass. Which is the highest pass on Srinagar Leh Highway. We will be witnessing Drass, the village that Popularly known as 'The Gateway to Ladakh', Dras is the coldest inhabited place in India and the second coldest inhabited place in the world (Siberia being the first). The mountain village of Dras first came into the limelight in the year 1999, when Pakistan Army incursions led to the Kargil War with India. Later visit Kargil war Memorial. Overnight Stay in Kargil</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: KARGIL TO LEH <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. head out and explore the beautiful land of Leh. you will cover Namilla Pass and Fotula Pass Then visit Moonland Landscapes (A landscape that looks like the land of Mars) Visit the Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib, Magnetic Hill and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Overnight stay is provided at Leh</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08: LEH <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, Visit to Leh bazaar, Shanti Stupa and Leh Palace. After that day, I leisurely rested. Overnight Stay in a Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09: LEH TO PANGONG <span>+</span></div><div class="accordion-content">We get ready to check another location that would leave us awestruck off our list - the Pangong Lake! We will cross Changla Pass 17,350 ft. (One Of the Highest Motorable roads in the world). The ride will leave you spellbound with beautiful views and mind-blowing landscape. Enroute visit Rancho School (Known as 3 Idiot School), Thikshey & Shey Monestary. The first view of the lake will leave you spellbound and as we breathe that in. A sumptuous dinner with a chit-chat session would bring an end to the day. We retreated to the hotel for a night's stay. Overnight stay at the Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 10: PANGONG TO NUBRA VIA SHYOK <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the lifestyle of people living in the northernmost region of India. Visit the exact location of the famous movie “Three idiots” & enjoy an outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. After that, proceed to Nubra via Shyok Route. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 11: TURTUK DAY EXCURSION <span>+</span></div><div class="accordion-content">Post Breakfast, We will heal towards Turtuk Village (A village that India recaptured from Pakistan in 1971). Which is the last site of Pakistan Side. Then Visit LOC side Thang and Tyakshi Village. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are a major source of income for the locals. Visit Turtuk Waterfall and Turtuk Museum later on. Enjoy the magnificent view of K2 peak while walking around. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 12: NUBRA VALLEY TO LEH VIA KHARDUNGLA PASS <span>+</span></div><div class="accordion-content">In the morning you Visit Sand Dunes of Nubra Valley and can enjoy a Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Overnight stay and dinner at Leh.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 13: DEPARTURE <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

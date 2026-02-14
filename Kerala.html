@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <div class="filter-buttons">
+    <button onclick="showItinerary('4N5D')">4 Nights / 5 Days </button>
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days </button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days </button>
+    <button onclick="showItinerary('7N8D')">7 Nights / 8 Days </button>
+    <button onclick="showItinerary('8N9D')">8 Nights / 9 Days </button>
+</div>
+
+<div id="itinerary-4N5D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">Day 1: Welcome to Cochin, Transfer to Munnar <span>+</span></div><div class="accordion-content">When you arrive at **Cochin**, you will be received by our travel representative and brought to **Munnar** crossing a very picturesque route. We will be passing through the stunning attraction of **Cheeyappara**, **Valera**, and **Kallar waterfalls**. You can capture some pictures in **Karadippara**. Check into your hotel when you arrive. The first day is a leisure day, so you can rest for a while then have fun by touring around the beautiful hill station. Return back to your hotel and have a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Sightseeing tour of Munnar <span>+</span></div><div class="accordion-content">Starting your day with appetizing breakfast, make your first visit to the **Eravikulam National Park**, where **Nilgiri Tahr** (an endangered species) is found. You will be touring on a park bus while you can sink deep into the natural beauty around you. After that, you will visit the **tea museum** by Tata tea where you can learn about tea processing and taste a cup of energizing tea. You will now take visits to **Rose Garden**, **Photo Point**, **Elephant Arrival Point**, and **Echo Point**. You will also be taken to the **Indo Swiss Project**. Return back to the hotel and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Munnar to Thekkady <span>+</span></div><div class="accordion-content">Get up early to enjoy the sunrise and a tasty breakfast, before proceeding to **Thekkady** - a verdant paradise ideal for unwinding. Upon arrival, check-in at the hotel. In the evening, enjoy the scenic **Periyar Lake**, occasionally catching glimpses of rare varieties of birds and while enjoying a **jungle safari** in the **Periyar National Park**. Return to the hotel for an overnight stay at Thekkady.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Thekkady to Alleppey (Backwaters) <span>+</span></div><div class="accordion-content">Have a delightful breakfast and check-out from the hotel. You will now move towards **Alleppey**. When you arrive, check-in to the hotel/houseboat and rest in your room for a bit. Then start your sail across the beautiful **backwaters** of Alleppey with a series of lake and ponds. After the soothing cruise, get a pleasant dinner and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Departure <span>+</span></div><div class="accordion-content">Have your fill of a delicious breakfast. If time permits, proceed to **Cochin Airport or Railway Station**. Drive back to your hometown with the sweet memories of Kerala.</div></div>
+</div>
+
+<div id="itinerary-5N6D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1: Welcome to Cochin, Transfer to Munnar <span>+</span></div><div class="accordion-content">When you arrive at **Cochin**, you will be received by our travel representative and brought to **Munnar** crossing a very picturesque route. We will be passing through the stunning attraction of **Cheeyappara**, **Valera**, and **Kallar waterfalls**. You can capture some pictures in **Karadippara**. Check into your hotel when you arrive. The first day is a leisure day. Return back to your hotel and have a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Sightseeing tour of Munnar <span>+</span></div><div class="accordion-content">Starting your day with appetizing breakfast, visit the **Eravikulam National Park** to see **Nilgiri Tahr**. Visit the **tea museum** by Tata tea. You will now take visits to **Rose Garden**, **Photo Point**, **Elephant Arrival Point**, **Echo Point**, and the **Indo Swiss Project**. Return back to the hotel and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Munnar to Thekkady <span>+</span></div><div class="accordion-content">Proceed to **Thekkady**. Upon arrival, check-in at the hotel. In the evening, enjoy the scenic **Periyar Lake** and a **jungle safari** in the **Periyar National Park**. Return to the hotel for an overnight stay at Thekkady.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Thekkady to Alleppey (Backwaters) <span>+</span></div><div class="accordion-content">Move towards **Alleppey**. Check-in to the hotel/houseboat. Start your sail across the beautiful **backwaters** of Alleppey. After the soothing cruise, have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Head back to Cochin & Sightseeing <span>+</span></div><div class="accordion-content">Start your day with breakfast in the houseboat/hotel. Transfer to **Cochin**. Upon arrival at Cochin, check into the hotel. You can visit **Marine Drive** for a quick stroll. You can also visit the **Jewish Synagogue**, **St.Francis Church** and **Dutch Palace**. Enjoy your overnight stay at the hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Departure <span>+</span></div><div class="accordion-content">Have your fill of a delicious breakfast and if time permits, proceed to **Cochin Airport or Railway Station**. Drive back to your hometown with the sweet memories of Kerala.</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1: Welcome to Cochin, Transfer to Munnar <span>+</span></div><div class="accordion-content">When you arrive at **Cochin**, you will be received and brought to **Munnar**. En-route witness **Cheeyappara**, **Valera**, and **Kallar waterfalls**. Check into your hotel. The first day is a leisure day. Return back to your hotel for a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Sightseeing tour of Munnar <span>+</span></div><div class="accordion-content">Visit the **Eravikulam National Park** (Nilgiri Tahr). Visit the **tea museum** by Tata tea. Tour the **Rose Garden**, **Photo Point**, **Elephant Arrival Point**, **Echo Point**, and the **Indo Swiss Project**. Return back to the hotel and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Munnar to Thekkady <span>+</span></div><div class="accordion-content">Proceed to **Thekkady**. In the evening, enjoy the scenic **Periyar Lake** and a **jungle safari** in the **Periyar National Park**. Overnight stay at Thekkady.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Thekkady to Alleppey (Backwaters) <span>+</span></div><div class="accordion-content">Move towards **Alleppey**. Check-in to the hotel/houseboat. Start your sail across the beautiful **backwaters**. Have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Alleppey to Kovalam <span>+</span></div><div class="accordion-content">Check out from the hotel/houseboat and leave for **Kovalam**, a city of vintage castles and flawless beaches. Check into the hotel and relax, as it is a leisure day. Return back to your hotel and have a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Kovalam Sightseeing <span>+</span></div><div class="accordion-content">Proceed to **Lighthouse Beach**, **Hawah Beach** and **Samudra Beach** and watch the sunset. Return back to the hotel and enjoy your sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Departure <span>+</span></div><div class="accordion-content">Have your fill of a delicious breakfast and if time permits, proceed to the Airport or Railway Station. Drive back to your hometown with the sweet memories of Kerala.</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1: Kochi: Arrival and Sightseeing <span>+</span></div><div class="accordion-content">You will be picked up from the **Cochin** international airport and brought to the hotel. After check-in, proceed with sightseeing. Visit the **Mattancherry Palace** and the **Jewish Synagogue**. After that, you can jaunt around the local markets. Return back to your hotel and sleep comfortably.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Cochin to Munnar <span>+</span></div><div class="accordion-content">Check-in to the hotel at **Munnar** and have rest. This day in Munnar is for leisure. Return back to your hotel for a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Sightseeing tour of Munnar <span>+</span></div><div class="accordion-content">Visit the **Eravikulam National Park** (Nilgiri Tahr). Visit the **tea museum** by Tata tea. Tour the **Rose Garden**, **Photo Point**, **Elephant Arrival Point**, **Echo Point**, and the **Indo Swiss Project**. Return back to the hotel and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Munnar to Thekkady <span>+</span></div><div class="accordion-content">Proceed to **Thekkady**. In the evening, enjoy the scenic **Periyar Lake** and a **jungle safari** in the **Periyar National Park**. Overnight stay at Thekkady.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Thekkady to Alleppey (Backwaters) <span>+</span></div><div class="accordion-content">Move towards **Alleppey**. Check-in to the hotel/houseboat. Start your sail across the beautiful **backwaters**. Have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Alleppey to Kovalam <span>+</span></div><div class="accordion-content">Check out from the hotel/houseboat and leave for **Kovalam**. Check in into the hotel and relax, as it is a leisure day. Return back to your hotel and have a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Kovalam Sightseeing <span>+</span></div><div class="accordion-content">Proceed to **Lighthouse Beach**, **Hawah Beach** and **Samudra Beach** and watch the sunset. Return back to the hotel and enjoy your sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 8: Departure <span>+</span></div><div class="accordion-content">Have your fill of a delicious breakfast and if time permits, proceed to the Airport or Railway Station. Drive back to your hometown with the sweet memories of Kerala.</div></div>
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1: Kochi: Arrival and Sightseeing <span>+</span></div><div class="accordion-content">You will be picked up from the **Cochin** international airport and brought to the hotel. Visit the **Mattancherry Palace** and the **Jewish Synagogue**. Jaunt around the local markets. Return back to your hotel and sleep comfortably.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Cochin to Munnar <span>+</span></div><div class="accordion-content">Check-in to the hotel at **Munnar**. This day in Munnar is for leisure. Return back to your hotel for a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Sightseeing tour of Munnar <span>+</span></div><div class="accordion-content">Visit the **Eravikulam National Park** (Nilgiri Tahr). Visit the **tea museum**. Tour the **Rose Garden**, **Photo Point**, **Echo Point**, and the **Indo Swiss Project**. Return back to the hotel and have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Munnar to Thekkady <span>+</span></div><div class="accordion-content">Proceed to **Thekkady**. In the evening, enjoy the scenic **Periyar Lake** and a **jungle safari** in the **Periyar National Park**. Overnight stay at Thekkady.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Thekkady to Alleppey (Backwaters) <span>+</span></div><div class="accordion-content">Move towards **Alleppey**. Check-in to the hotel/houseboat. Start your sail across the beautiful **backwaters**. Have a sound sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Alleppey to Kovalam <span>+</span></div><div class="accordion-content">Check out from the hotel/houseboat and leave for **Kovalam**. Check in into the hotel and relax, as it is a leisure day. Return back to your hotel and have a restful sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Kovalam Sightseeing <span>+</span></div><div class="accordion-content">Proceed to **Lighthouse Beach**, **Hawah Beach** and **Samudra Beach** and watch the sunset. Return back to the hotel and enjoy your sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 8: Kovalam to Kanyakumari <span>+</span></div><div class="accordion-content">After breakfast, you leave for the coastal city of **Kanyakumari** famous for its sunrise view. As you reach Kanyakumari, check into the hotel. Later, visit the famous **Vivekananda Rock Memorial**, **Thiruvalluvar Statue**, **Vattakottai Fort** at the beach and **Lady of Ransom Church**. Return to the hotel and enjoy a good night’s sleep.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 9: Departure <span>+</span></div><div class="accordion-content">Have your fill of a delicious breakfast and if time permits, proceed to the Airport or Railway Station. Drive back to your hometown with the sweet memories of Kerala.</div></div>
+</div>  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages - Nilkanth Holidays</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+    body {background:#fff; line-height:1.6;}
+
+    /* Navbar */
+    header {position:absolute; top:0; left:0; width:100%; z-index:1000; background:transparent;}
+    .navbar {max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:30px 20px;}
+    .logo-left img {width:100px;}
+    nav ul {list-style:none; display:flex; gap:20px;}
+    nav ul li a {text-decoration:none; color:#fff; font-weight:bold; font-size:18px; position:relative; transition:.3s;}
+    nav ul li a:hover {color:#ff8800;}
+    nav ul li a::after {content:""; position:absolute; bottom:-5px; left:0; width:0; height:3px; background:#ff8800; transition:.3s;}
+    nav ul li a:hover::after {width:100%;}
+    .menu-toggle {display:none; flex-direction:column; cursor:pointer; gap:5px;}
+    .menu-toggle span {width:25px; height:3px; background:#fff; border-radius:2px;}
+
+    @media(max-width:768px){
+      nav {display:none; width:100%; background:rgba(0,0,0,0.7); position:absolute; top:60px; left:0; padding:15px 0;}
+      nav ul {flex-direction:column; align-items:center; gap:15px;}
+      nav.active {display:flex; justify-content:center;}
+      .menu-toggle {display:flex;}
+    }
+
+    /* Hero */
+    .hero {position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;}
+    #slideshow {position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;}
+    .slide {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.5s;}
+    .slide.active {opacity:1;}
+    .hero-text {color:#fff; text-shadow:3px 3px 15px rgba(0,0,0,0.8); padding:0 15px;}
+    .hero-text h1 {font-size:3rem; font-weight:900;}
+    .hero-text span {font-size:3rem; font-weight:900; color:#e1de20;}
+    @media(max-width:768px){.hero-text h1,.hero-text span{font-size:2rem;}}
+    @media(max-width:480px){.hero-text h1,.hero-text span{font-size:1.6rem;}}
+
+    /* Packages Grid */
+    .packages {
+      max-width:1200px; 
+      margin:60px auto; 
+      padding:20px; 
+      display:grid; 
+      grid-template-columns:repeat(3, 1fr); 
+      gap:30px;
+    }
+
+    /* Responsive breakpoints */
+    @media(max-width:992px){
+      .packages {grid-template-columns:repeat(2, 1fr);}
+    }
+    @media(max-width:640px){
+      .packages {grid-template-columns:1fr;}
+    }
+
+    .packages h2 {
+      grid-column:1/-1; 
+      text-align:center; 
+      font-size:2.2rem; 
+      font-weight:800; 
+      margin:20px 0; 
+      color:#222;
+    }
+
+    .package-card {
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .image-container {
+      position:relative;
+      width:100%;
+      height:200px;
+      overflow:hidden;
+    }
+    .image-container img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Hover Button */
+    .hover-btn {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:#ff8800;
+      color:#fff;
+      padding:10px 20px;
+      border-radius:6px;
+      font-size:1rem;
+      text-decoration:none;
+      opacity:0;
+      transition:opacity 0.3s ease;
+    }
+    .image-container:hover .hover-btn {opacity:1;}
+    @media(max-width:768px){.hover-btn {opacity:1;}}
+
+    .price-box {
+      background:#ff8800; 
+      color:#fff; 
+      font-weight:bold; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      font-size:1.2rem; 
+      padding:12px;
+      text-align:center;
+    }
+
+    /* Footer */
+    footer {background:#000; color:#fff; padding:40px 20px 20px; margin-top:40px;}
+    .footer-bottom {text-align:center; margin-top:20px; border-top:1px solid #333; padding-top:15px; font-size:13px; color:#999;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero + Navbar -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left"><img src="okk.png" alt="Nilkanth Holidays Logo"></div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Slideshow -->
+    <div id="slideshow">
+      <img src="dubai.jpg" class="slide active" />
+      <img src="sii.jpg" class="slide" />
+      <img src="nepal.jpg" class="slide" />
+      <img src="h1.jpg" class="slide" />
+      <img src="simla.jpg" class="slide" />
+      <img src="Kerala.jpg" class="slide" />
+
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Choose Your Destination <span id="changingText">Dubai</span></h1>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="packages">
+    <h2>Domestic</h2>
+    <div class="package-card">
+      <div class="image-container">
+        <img src="kl.jpg" alt="Kashmir">
+        <a href="kasmir.html" class="hover-btn">View Details</a>
+      </div>
+      <div class="price-box">Kashmir</div>
+    </div>
+
+    <div class="package-card">
+      <div class="image-container">
+        <img src="simla.jpg"alt="Himachal">
+        <a href="himachal.html" class="hover-btn">View Details</a>
+      </div>
+      <div class="price-box">Himachal Pradesh</div>
+    </div>
+    <div class="package-card">
+  <div class="image-container">
+    <img src="ld.jpg" alt="Goa">
+    <a href="LehLadakh.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Leh Ladakh</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Uttarakhand.jpg" alt="Goa">
+    <a href="Uttarakhand.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Uttarakhand</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="up.jpg" alt="Goa">
+    <a href="UttarPradesh.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Uttar Pradesh</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Meghalaya.jpg" alt="Goa">
+    <a href="Meghalaya.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Meghalaya</div>
+</div>
+
+<div class="package-card">
+  <div class="image-container">
+    <img src="Sikkim.jpg" alt="Goa">
+    <a href="Sikkim.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Sikkim</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="ArunachalPradesh.jpg" alt="Goa">
+    <a href="ArunachalPradesh.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Arunachal Pradesh</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="r.jpg" alt="Goa">
+    <a href="Rajasthan.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Rajasthan</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Gujarat.jpg" alt="Goa">
+    <a href="Gujarat.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Gujarat</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="goa.jpg" alt="Goa">
+    <a href="Goa.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Goa</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Karnataka.jpg" alt="Goa">
+    <a href="Karnataka.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Karnataka</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Kerala.jpg" alt="Goa">
+    <a href="Kerala.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Kerala</div>
+</div>
+
+<div class="package-card">
+  <div class="image-container">
+    <img src="TamilNadu.jpg" alt="Goa">
+    <a href="TamilNadu.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Tamil Nadu</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="aan.jpg" alt="Goa">
+    <a href="Andaman.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Andaman and Nicobar Islands</div>
+</div>
+<h2 style="grid-column:1/-1; text-align:center; font-size:2.2rem; font-weight:800; margin:20px 0; color:#222;">
+    international 
+  </h2>
+<div class="package-card">
+  <div class="image-container">
+    <img src="nepal.jpg" alt="Goa">
+    <a href="Nepal.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Nepal</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="bhutan.jpg" alt="Goa">
+    <a href="Bhutan.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Bhutan</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="du.jpg" alt="Goa">
+    <a href="Dubai.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Dubai</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="vt.jpg" alt="Goa">
+    <a href="Vietnam.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Vietnam</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="mal.jpg" alt="Goa">
+    <a href="Maldives.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Maldives</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="sh.jpg" alt="Goa">
+    <a href="SriLanka.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Sri Lanka</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="ba.jpg" alt="Goa">
+    <a href="Bali.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Bali</div>
+</div>
+<div class="package-card">
+  <div class="image-container">
+    <img src="Singapore.jpg" alt="Goa">
+    <a href="Singapore.html" class="hover-btn">View Details</a>
+  </div>
+ <div class="price-box">Singapore</div>
+</div>
+
+    <!-- बाकी cards same format में डालो -->
+  </section>
+
+  <!-- Footer -->
+  
+
+  <script>
+    // Navbar toggle
+    document.getElementById("menu-toggle").addEventListener("click",()=>{
+      document.getElementById("nav").classList.toggle("active");
+    });
+
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");
+    let currentSlide=0;
+    setInterval(()=>{
+      slides[currentSlide].classList.remove("active");
+      currentSlide=(currentSlide+1)%slides.length;
+      slides[currentSlide].classList.add("active");
+    },5000);
+
+    // Changing text
+    const places = ["Dubai","Singapore", "Nepal", "Bali", "Shimla", "Kerala"];
+    let i=0;
+    setInterval(()=>{
+      document.getElementById("changingText").textContent=places[i];
+      i=(i+1)%places.length;
+    },5000);
+  </script>
+  <footer style="background:#000; color:#fff; padding:40px 20px 20px; margin-top:40px;">
+    <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
+      
+      <!-- Column 1 -->
+      <div>
+        <h3 style="margin-bottom:15px; color:#ff8800;">NILKANTH <span style="color:#fff;">HOLIDAYS</span></h3>
+        <p style="color:#ccc; font-size:14px; line-height:1.6;">
+          Best travel experiences with customized packages and amazing destinations.
+        </p>
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+        <h4 style="margin-bottom:15px; color:#ff8800;">Quick Links</h4>
+          <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="text-decoration:none; color:#ccc;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="domestic.html" style="text-decoration:none; color:#ccc;">Domestic</a></li>
+        <li style="margin-bottom:8px;"><a href="Internatinol.html" style="text-decoration:none; color:#ccc;">Internatinol</a></li>
+        <li style="margin-bottom:8px;"><a href="about.html" style="text-decoration:none; color:#ccc;">About</a></li>
+        <li style="margin-bottom:8px;"><a href="packages.html" style="text-decoration:none; color:#ccc;">Packages</a></li>
+        <li style="margin-bottom:8px;"><a href="contact.html" style="text-decoration:none; color:#ccc;">Contact</a></li>
+      </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Contact Us</h4>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Email: info@nilkanthholidays.in</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 63538 53297</p>
+            <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 88666 53297</p>
+
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Address: Second Floor, Satva Complex, 204, NR Sindhu Bhavan Rd, Thaltej, Ahmedabad, Gujarat 380059</p>
+    </div>
+    </div>
+
+    <!-- Bottom -->
+    <div style="text-align:center; margin-top:20px; border-top:1px solid #333; padding-top:15px; font-size:13px; color:#999;">
+      © 2025 Nilkanth Holidays. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

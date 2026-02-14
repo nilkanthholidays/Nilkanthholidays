@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <h2 style="text-align:center;margin:30px 0;">Choose Your Itinerary(Sikkim)</h2>
+  <div class="filter-buttons">
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days</button>
+    <button onclick="showItinerary('7N8D')">7 Nights / 8 Days</button>
+    <button onclick="showItinerary('8N9D')">8 Nights / 9 Days</button>
+</div>
+
+<div id="itinerary-5N6D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">DAY 1: Arrival - Darjeeling <span>+</span></div><div class="accordion-content">Assistance at the airport/railway station on arrival and drive to Darjeeling[cite: 201]. [cite_start]**DARJEELING**: Standing high in the Himalayas at an altitude of 2134m, ‘Dorje Ling’, or place of the Thunderbolt, offers breathtaking views of snow-capped mountain peaks, with the Kanchendzonga rising higher than all the others[cite: 203]. [cite_start]Often referred to as the “Queen of the Hills”, it remains just as alluring with its tiny waterfalls, little villages and a narrow gauge railway track[cite: 204]. [cite_start]Surrounded by World Famous Tea Gardens and snow capped mountains, Darjeeling remains one of the most exotic destinations[cite: 205]. [cite_start]Graeme Westlake in his book ‘An introduction to hill stations on India’ refers to Darjeeling as[cite: 206, 210]. [cite_start]Overnight at hotel[cite: 216].</div></div>
+   <div class="accordion"><div class="accordion-header">DAY 2: Darjeeling <span>+</span></div><div class="accordion-content">Early morning visit **Tiger Hill** to see a beautiful sunrise and Himalayan Range like Kanchandzonga, Mount Everest etc.[cite: 212]. [cite_start]One can see the horizon changing colors just before sunrise and then the entire Himalayan range turn golden[cite: 212]. [cite_start]It is truly a majestic sight and **Ghoom Monastery** which is oldest Monastery in the area which was built in 1875 and one can see the image of Mythey Buddha 15ft. height on the way back from Tiger Hill[cite: 213, 214]. [cite_start]Breakfast at the hotel and proceed for city tour visiting **Himalayan Mountaineering Institute** (closed on Thursday) which was started by Tenzing Norgay after he climbed Mt. Everest, **Zoological Park** (closed on Thursday), **Tibetan Refugee Centre** (closed on Sunday), **Tenzing Rock**, **Gombu Rock** and **Happy Valley Tea Estate** (from outside)[cite: 215]. [cite_start]Overnight at hotel[cite: 216].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Darjeeling – Gangtok (98 kms / 4 hours approx) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Gangtok[cite: 218]. [cite_start]**GANGTOK**: At an altitude of 1750m, Gangtok became the state capital in the mid 19th century and has undergone rapid development since then[cite: 220]. [cite_start]The downtown area is dominated by huge government buildings decorated with traditional Buddhist symbols[cite: 220]. [cite_start]Gangtok is also a resting ground for people traveling to North Sikkim[cite: 221]. [cite_start]Surrounded by Monasteries and Orchids, Gangtok is truly a travellers delight[cite: 222]. [cite_start]Overnight at hotel[cite: 223].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Gangtok <span>+</span></div><div class="accordion-content">Breakfast at the hotel and full day excursion to **Changu Lake** which is 35 Kms from Gangtok at an altitude of 12,400 feet[cite: 225]. [cite_start]The lake derives its waters from melting snows off the surrounding mountains[cite: 226]. [cite_start]Legends say that lamas could forecast the future by studying the color of the lake’s waters[cite: 226]. [cite_start]Also visit **Baba Mandir**[cite: 227]. [cite_start]Overnight at hotel[cite: 227].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Gangtok - Kalimpong (83 kms / 3 hours approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Kalimpong[cite: 229]. [cite_start]**KALIMPONG**: At an altitude of 1250m, Kalimpong’s location is ideal for a pleasant, relaxed getaway[cite: 231]. [cite_start]Its clement weather has made Kalimpong’s orchids and gladiole well renowned[cite: 232]. [cite_start]Up to the early 1700s, the Kalimpong area was part of the Sikkim raja’s domain[cite: 233]. [cite_start]In the early 18th century, the Bhutan king also took it over[cite: 234]. [cite_start]In 1865, after the Anglo-Bhutan War, it was annexed to Darjeeling[cite: 235]. [cite_start]Scottish Missionaries came here in the late 1800s[cite: 235]. [cite_start]The town thrived as a wool trading center with Tibet till 1950s[cite: 236]. [cite_start]Today it’s a quiet hill resort and a haven for retired people[cite: 237]. [cite_start]Afternoon proceed for city tour visiting **Zang Dog Palri Fo Brang Monastery**, **Tharpa Choling Monastery**, **Thongsa Gumpa** and **flower nurseries**[cite: 237]. [cite_start]Overnight at hotel[cite: 237].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 6: Departure <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Bagdogra/NJP in time for flight/train to onward destination[cite: 239].</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Arrival – Darjeeling (93 kms / 3 hours approx) <span>+</span></div><div class="accordion-content">Assistance at the airport/railway station on arrival and drive to Darjeeling[cite: 242]. [cite_start]**DARJEELING**: Standing high in the Himalayas at an altitude of 2134m, ‘Dorje Ling’, or place of the Thunderbolt, offers breathtaking views of snow-capped mountain peaks, with the Kanchendzonga rising higher than all the others[cite: 244]. [cite_start]Often referred to as the “Queen of the Hills”, it remains just as alluring with its tiny waterfalls, little villages and a narrow gauge railway track[cite: 245]. [cite_start]Surrounded by World Famous Tea Gardens and snow capped mountains, Darjeeling remains one of the most exotic destinations[cite: 246]. [cite_start]Graeme Westlake in his book ‘An introduction to hill stations on India’ refers to Darjeeling as having “A view Scarcely Unrivalled on Earth”[cite: 247]. [cite_start]Overnight at hotel[cite: 248].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Darjeeling <span>+</span></div><div class="accordion-content">Early morning visit **Tiger Hill** to see a beautiful sunrise and Himalayan Range like Kanchandzonga, Mount Everest etc.[cite: 250]. [cite_start]One can see the horizon changing colors just before sunrise and then the entire Himalayan range turn golden[cite: 250]. [cite_start]It is truly a majestic sight and **Ghoom Monastery** which is oldest Monastery in the area which was built in 1875 and one can see the image of Mythey Buddha 15ft. height on the way back from Tiger Hill[cite: 251, 252]. [cite_start]Breakfast at the hotel and proceed for city tour visiting **Himalayan Mountaineering Institute** (closed on Thursday) which was started by Tenzing Norgay after he climbed Mt. Everest, **Zoological Park** (closed on Thursday), **Tibetan Refugee Centre** (closed on Sunday), **Tenzing Rock**, **Gombu Rock** and **Happy Valley Tea Estate** (from outside)[cite: 253]. [cite_start]Overnight at hotel[cite: 254].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Darjeeling – Gangtok (98 kms / 4 hours approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Gangtok en route visiting **Teesta Village**[cite: 256]. [cite_start]**GANGTOK**: At an altitude of 1750m, Gangtok became the state capital in the mid 19th century and has undergone rapid development since then[cite: 258]. [cite_start]The downtown area is dominated by huge government buildings decorated with traditional Buddhist symbols[cite: 258]. [cite_start]Gangtok is also a resting ground for people traveling to North Sikkim[cite: 259]. [cite_start]Surrounded by Monasteries and Orchids, Gangtok is truly a travellers delight[cite: 260]. [cite_start]Overnight at hotel[cite: 261].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Gangtok <span>+</span></div><div class="accordion-content">Breakfast at the hotel and proceed for half day city tour visiting **Rumtek Monastery**, **Do Drul Chorten**, **Namgyal Institute of Tibetology** (closed on Sundays), **Cottage Industry** (closed on Sundays) and **Flower Show Complex**[cite: 263]. [cite_start]Overnight at hotel[cite: 263].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Gangtok <span>+</span></div><div class="accordion-content">Breakfast at the hotel and full day excursion to **Changu Lake** which is 35 Kms from Gangtok at an altitude of 12,400 feet[cite: 265]. [cite_start]The lake derives its waters from melting snows off the surrounding mountains[cite: 266]. [cite_start]Legends say that lamas could forecast the future by studying the color of the lake’s waters[cite: 266]. [cite_start]Also visit **Baba Mandir**[cite: 267]. [cite_start]Overnight at hotel[cite: 267].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 6: Gangtok - Kalimpong (83 kms / 3 hrs approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Kalimpong[cite: 269]. [cite_start]**KALIMPONG**: At an altitude of 1250m, Kalimpong’s location is ideal for a pleasant, relaxed getaway[cite: 271]. [cite_start]Its clement weather has made Kalimpong’s orchids and gladiole well renowned[cite: 272]. [cite_start]Up to the early 1700s, the Kalimpong area was part of the Sikkim raja’s domain[cite: 273]. [cite_start]In the early 18th century, the Bhutan king also took it over[cite: 274]. [cite_start]In 1865, after the Anglo-Bhutan War, it was annexed to Darjeeling[cite: 275]. [cite_start]Scottish Missionaries came here in the late 1800s[cite: 275]. [cite_start]The town thrived as a wool trading center with Tibet till 1950s[cite: 276]. [cite_start]Today it’s a quiet hill resort and a haven for retired people[cite: 277]. [cite_start]Afternoon sightseeing in Kalimpong city tour visiting **Zang Dog Palri Fo Brang Monastery**, **Tharpa Choling Monastery**, **Thongsa Gumpa** and **flower nurseries**[cite: 278]. [cite_start]Overnight at hotel[cite: 279].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 7: Departure <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Bagdogra/NJP in time for flight/train to onward destination[cite: 281].</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Arrival – Darjeeling (93 kms / 3 hours approx.) <span>+</span></div><div class="accordion-content">Assistance at the airport/railway station on arrival and drive to Darjeeling[cite: 284]. [cite_start]**DARJEELING**: Standing high in the Himalayas at an altitude of 2134m, ‘Dorje Ling’, or place of the Thunderbolt, offers breathtaking views of snow-capped mountain peaks, with the Kanchendzonga rising higher than all the others[cite: 286]. [cite_start]Often referred to as the “Queen of the Hills”, it remains just as alluring with its tiny waterfalls, little villages and a narrow gauge railway track[cite: 287]. [cite_start]Surrounded by World Famous Tea Gardens and snow capped mountains, Darjeeling remains one of the most exotic destinations[cite: 288]. [cite_start]Graeme Westlake in his book ‘An introduction to hill stations on India’ refers to Darjeeling as having “A view Scarcely Unrivalled on Earth”[cite: 289]. [cite_start]Overnight at hotel[cite: 290].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Darjeeling <span>+</span></div><div class="accordion-content">Early morning visit **Tiger Hill** to see a beautiful sunrise and Himalayan Range like Kanchandzonga, Mount Everest etc.[cite: 292]. [cite_start]One can see the horizon changing colors just before sunrise and then the entire Himalayan range turn golden[cite: 292]. [cite_start]It is truly a majestic sight and **Ghoom Monastery** which is oldest Monastery in the area which was built in 1875 and one can see the image of Mythey Buddha 15ft. height on the way back from Tiger Hill[cite: 293, 294]. [cite_start]Breakfast at the hotel and proceed for city tour visiting **Himalayan Mountaineering Institute** (closed on Thursday) which was started by Tenzing Norgay after he climbed Mt. Everest, **Zoological Park** (closed on Thursday), **Tibetan Refugee Centre** (closed on Sunday), **Tenzing Rock**, **Gombu Rock** and **Happy Valley Tea Estate** (from outside)[cite: 294]. [cite_start]Overnight at hotel[cite: 295].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Darjeeling – Pelling (75 kms / 3 hours approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to **Pelling**[cite: 297]. [cite_start]**PELLING**: Located at a distance of 120 kms from Gangtok Pelling is another serene, mountain village which lies in the western districts of Sikkim[cite: 299]. [cite_start]This village is situated at an altitude of 2000 mts(approx) and commands a spectacular view of Mt.Kanchenjunga[cite: 300]. [cite_start]Overnight at hotel[cite: 301].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Pelling <span>+</span></div><div class="accordion-content">Breakfast at the hotel and proceed for city tour visiting **Pemayangste Monastery**, **Rabtense Ruins**, **Khechipalri Lake**, **Kanchenjunga Fall** and **Rambi Falls**[cite: 303]. [cite_start]Overnight at hotel[cite: 304].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Pelling – Gangtok (127 kms / 5 hours approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Gangtok[cite: 306]. [cite_start]**GANGTOK**: At an altitude of 1750m, Gangtok became the state capital in the mid 19th century and has undergone rapid development since then[cite: 308]. [cite_start]The downtown area is dominated by huge government buildings decorated with traditional Buddhist symbols[cite: 309]. [cite_start]Gangtok is also a resting ground for people traveling to North Sikkim[cite: 310]. [cite_start]Surrounded by Monasteries and Orchids, Gangtok is truly a travellers delight[cite: 311]. [cite_start]Overnight at hotel[cite: 311].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 6: Gangtok <span>+</span></div><div class="accordion-content">Breakfast at the hotel and full day excursion to **Changu Lake** which is 35 Kms from Gangtok at an altitude of 12,400 feet[cite: 313]. [cite_start]The lake derives its waters from melting snows off the surrounding mountains[cite: 314]. [cite_start]Legends say that lamas could forecast the future by studying the color of the lake’s waters[cite: 314]. [cite_start]Also visit **Baba Mandir**[cite: 315]. [cite_start]Overnight at hotel[cite: 315].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 7: Gangtok - Kalimpong (83 kms / 3 hrs approx.) <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Kalimpong[cite: 317]. [cite_start]**KALIMPONG**: At an altitude of 1250m, Kalimpong’s location is ideal for a pleasant, relaxed getaway[cite: 319]. [cite_start]Its clement weather has made Kalimpong’s orchids and gladiole well renowned[cite: 320]. [cite_start]Up to the early 1700s, the Kalimpong area was part of the Sikkim raja’s domain[cite: 321]. [cite_start]In the early 18th century, the Bhutan king also took it over[cite: 322]. [cite_start]In 1865, after the Anglo-Bhutan War, it was annexed to Darjeeling[cite: 323]. [cite_start]Scottish Missionaries came here in the late 1800s[cite: 323]. [cite_start]The town thrived as a wool trading center with Tibet till 1950s[cite: 324]. [cite_start]Today it’s a quiet hill resort and a haven for retired people[cite: 325]. [cite_start]Afternoon sightseeing in Kalimpong city tour visiting **Zang Dog Palri Fo Brang Monastery**, **Tharpa Choling Monastery**, **Thongsa Gumpa** and **flower nurseries**[cite: 326]. [cite_start]Overnight at hotel[cite: 327].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 8: Departure <span>+</span></div><div class="accordion-content">Breakfast at the hotel and drive to Bagdogra/NJP in time for flight/train to onward destination[cite: 329].</div></div>
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Arrival at Bagdogra Airport – Gangtok (120 kilometers / 5 hours) <span>+</span></div><div class="accordion-content">Upon your arrival in Bagdogra Airport, you will be picked up and begin the 5-hour transfer to **Gangtok**, the modern capital of Sikkim and a cultural hub[cite: 332]. [cite_start]On the way to your hotel, enjoy the heart-beating highland view along the **Teesta River**[cite: 333]. [cite_start]After you check-in to your hotel, you have the rest of the day to spend at your leisure[cite: 334]. [cite_start]Overnight stay at a hotel in Gangtok[cite: 335].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Excursion to Tsomgo Lake & Baba Mandir <span>+</span></div><div class="accordion-content">Enjoy breakfast at your hotel, and then make the 55 kilometers drive to **Tsomgo Lake**, a high altitude lake of Sikkim[cite: 337]. [cite_start]Apart from sightseeing, here you can also indulge in yak riding[cite: 338]. [cite_start]Further, you will visit **Baba Mandir** (13,200 feet)[cite: 338]. [cite_start]Spend some time at the temples and then return to the hotel in Gangtok for overnight stay[cite: 339]. [cite_start]P.S.: In the case of a landslide, Tsomgo Lake will remain closed, but a visit to the alternate place will be provided[cite: 340].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Gangtok – Lachung (116 kilometers / 6 hours) <span>+</span></div><div class="accordion-content">Have a stomach-filling breakfast and start your day early by checking out from the hotel in Gangtok and proceeding towards **Lachung**[cite: 342]. [cite_start]It is a mountain village perched at a height of 8800 feet and is close to the Tibetan border[cite: 343]. [cite_start]It is also home to the 19th-century Buddhist Lachung Monastery[cite: 344]. [cite_start]Surrounded by apple orchards, the destinations mesmerising beauty is awe-inspiring[cite: 344]. [cite_start]En-route, visit the **Singhik View Point** and **Seven Sisters Waterfalls**[cite: 346]. The viewpoint offers its visitors’ a stunning view of **Mt. [cite_start]Kanchenjunga** and **Mt Siniolchu**[cite: 347, 348]. [cite_start]You can have lunch midway at Namok and take a short tea break at Chungthang[cite: 351]. [cite_start]On arrival in Lachung, check in at the hotel[cite: 352]. [cite_start]Enjoy a delicious dinner meal which will be served in the lodge itself and spend the overnight stay at Lachung[cite: 353].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Lachung – Yumthang Valley - 0 Point (Optional) - Gangtok (103 kilometers / 6 hours) <span>+</span></div><div class="accordion-content">Have a stomach-filling breakfast and start your day early by checking out from the hotel in Lachung and proceed towards the **Yumthang Valley**[cite: 356]. [cite_start]Situated at a height of 11,800 feet, it is popularly known as ‘Valley of Flowers'[cite: 357]. [cite_start]You can also visit the **hot springs** that are considered to have medicinal curative properties[cite: 359]. [cite_start]Enjoy a short stopover at the **Bheema** and **Twin Falls**[cite: 360]. [cite_start]The Bheema falls are also popularly known as the Amitabh Bachchan falls owing to its tallness[cite: 362]. [cite_start]An optional tour to the **Zero Point** can be arranged for on request and at an additional cost[cite: 363]. [cite_start]After sightseeing, continue your journey to Gangtok[cite: 366]. [cite_start]On arrival, check in at the hotel and spend the night in the comfort of the cosy room[cite: 366].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Gangtok – Pelling (150 kilometers / 5 hours) via Chardham <span>+</span></div><div class="accordion-content">From Gangtok, follow a hilly road surrounding the colourful houses, tiny hamlets, and lonely monasteries[cite: 369]. [cite_start]In between, you will see the beautiful miniatures of **Chardham** and **12 jyotirlingas** at the **SiddheshwarDham (Chardham)** and lay eyes on the 45 feet high copper statue of **Guru Padmasambhava**[cite: 370]. [cite_start]After the sightseeing tour, continue your ride towards **Pelling**[cite: 371]. [cite_start]Upon arrival at Pelling, you will be transferred to a hotel for overnight stay and dinner[cite: 371].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 6: Pelling Sightseeing <span>+</span></div><div class="accordion-content">Today, in the first half, you will be visiting **Darap village**, **Rimbi water Falls**, **Khecheopalri Lake** and **Khangchendzonga waterfalls**[cite: 374]. [cite_start]At the Darpa village, you will get a chance to explore local culture and meet and greet people of Bhutias, Chettris, Tamangs, Rais, Gurungs and Lepchas communities[cite: 375]. [cite_start]In the second half of the day, you will be visiting **Pemayangtse Monastery**, **Rabdentse Ruins**, and the **New Helipad Ground**[cite: 378]. [cite_start]**SKY WALK** can be visited on extra vehicle cost of INR 1000 and INR 100 per person entry ticket[cite: 380]. [cite_start]Get back to the hotel for overnight stay[cite: 379].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 7: Pelling – Darjeeling (80 kilometers / 4 hours) <span>+</span></div><div class="accordion-content">Done with your morning breakfast, check-out from the hotel and straight away travel to **Darjeeling**[cite: 382]. [cite_start]During the journey, you will come across **Singhik viewpoint**, from where you can enjoy the beautiful view of Mighty **Khangchendzonga**[cite: 383]. [cite_start]The whiff of tea and sound of toy trains symbolises that you are somewhere in and around Darjeeling[cite: 384]. [cite_start]Upon arrival at Darjeeling, you will be transferred to a hotel for overnight stay and dinner[cite: 385].</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 8: Darjeeling Sightseeing <span>+</span></div><div class="accordion-content">Get up at around 4 in the morning and get ready to chase the dawn over the **Mt. [cite_start]Khangchendzongha** (28,208 feet) at the **Tiger Hill** (8,400 feet)[cite: 387]. [cite_start]On your way back to the hotel, visit **Ghoom Monastery**, **War Memorial** and **Batasia Loop**[cite: 389]. After breakfast, proceed for the city sightseeing tour visiting **Himalayan Mountaineering Institute**, **P.N. [cite_start]Zoological Park** (Thursday closed), **Tenzing Rock**, **Tibetan Refugee self-help Centre** (Sunday closed), **Tea Garden** (outer view), **Ropeway** and **Japanese Temple**[cite: 391, 392]. [cite_start]Overnight stay in the hotel[cite: 394].</div></div>
+    [cite_start]<div class="accordion"><div class="accordion-header">DAY 9: Darjeeling – Bagdogra Airport (75 kilometers / 3 hours) <span>+</span></div><div class="accordion-content">After breakfast Check-out from the hotel on time & transfer to NJP Railway Station / IXB Airport for your onward journey[cite: 396].</div></div>
+</div>
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

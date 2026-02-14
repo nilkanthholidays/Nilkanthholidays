@@ -1,0 +1,268 @@
+/* styles.css - clean responsive layout for Travel Website */
+
+/* base */
+:root {
+  --accent: #0b74ff;
+  --dark: #111;
+  --muted: #666;
+  --card: #ffffff;
+  --shadow: 0 6px 20px rgba(12,12,12,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: var(--dark);
+  background: #f6f7f9;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* container */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* header / navbar */
+.site-header {
+  background: rgba(255,255,255,0.98);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.brand a {
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.main-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.main-nav a {
+  color: var(--dark);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.main-nav a:hover { background: #f2f4f7; }
+.main-nav .whats {
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.mobile-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* hero */
+.hero {
+  height: 72vh;
+  background-image: linear-gradient(180deg, rgba(8,12,20,0.25), rgba(8,12,20,0.25)),
+    url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1800&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.hero .container { display: flex; align-items: center; gap: 40px; }
+.hero .hero-left { flex: 1; padding: 48px 0; }
+.hero h1 { font-size: 42px; margin-bottom: 16px; line-height: 1.1; }
+.hero p { font-size: 18px; margin-bottom: 22px; color: rgba(255,255,255,0.9); }
+.search-row { display: flex; gap: 12px; max-width: 700px; }
+.search-row input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+.search-row button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.search-row button:hover { background: #084dcc; }
+
+/* hero right - video */
+.hero-right {
+  width: 460px;
+  background: rgba(255,255,255,0.06);
+  padding: 12px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+/* sections */
+.section { padding: 60px 0; }
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--dark);
+  position: relative;
+}
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* packages grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.card img { width: 100%; height: 180px; object-fit: cover; }
+.card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+.card-body h3 { margin: 0 0 8px; font-size: 18px; }
+.card-body p { flex: 1; color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+.card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 16px;
+}
+.card-foot button {
+  background: var(--accent);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.card-foot button:hover { background: #063f9b; }
+
+/* features (why us) */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+.feature {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+/* contact / form */
+.contact-wrap { display: flex; gap: 24px; flex-wrap: wrap; }
+.form-card {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.info-card {
+  flex: 1;
+  min-width: 260px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+form input, form textarea, form button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+form input:focus, form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(11,116,255,0.15);
+}
+form button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+form button:hover { background: #063f9b; }
+.info-card button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.info-card button:first-child { background: var(--accent); color: #fff; }
+.info-card button:last-child { background: #f1f1f1; }
+
+/* Footer */
+.site-footer {
+  background: #0b0b0b;
+  color: #fff;
+  padding: 26px 0;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.site-footer a { color: #fff; text-decoration: underline; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .hero { height: 60vh; }
+  .hero .container { flex-direction: column; align-items: flex-start; }
+  .hero-right { width: 100%; }
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+  }
+  .main-nav.show { display: flex; }
+  .mobile-toggle { display: block; }
+}

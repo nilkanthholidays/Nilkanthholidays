@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <div class="filter-buttons">
+    <button onclick="showItinerary('4N5D-RANN')">4 Nights / 5 Days </button>
+    <button onclick="showItinerary('7N8D-POLO')">7 Nights / 8 Days </button>
+    <button onclick="showItinerary('4N5D-SOU')">4 Nights / 5 Days </button>
+</div>
+
+<div id="itinerary-4N5D-RANN" class="itinerary">
+    <div class="accordion"><div class="accordion-header">DAY 1: Ahmedabad - Bhuj <span>+</span></div><div class="accordion-content">Arrive at designated place at Ahmedabad and proceed to **Bhuj**.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Bhuj – Mandvi <span>+</span></div><div class="accordion-content">Proceed to **Mandavi**. On arrival visit **Vijay Villas palace** & **Shyamji Krishna Varma Memorial** along with **Mandvi Beach**.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Mandvi – Rann Utsav <span>+</span></div><div class="accordion-content">Proceed to **Rann Utsav**. Experience drive through road to heaven. Visit **Hadappa Site** and discover its ancient stories. Enjoy cultural activities at Rann Utsav. In the evening we proceed to **White Rann** to witness the Grandeur of Sunset.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Rann Utsav – Bhuj <span>+</span></div><div class="accordion-content">Proceed to **Bhuj**. On arrival Visit to **Vande Mataram Museum**. Later Visit **Smritivan Earthquake Memorial and Museum** is a memorial park dedicated to the victims of 2001 Gujarat earthquake and museum on Bhujia Hill in Bhuj, Gujarat. Free time for shopping.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Bhuj - Departure from Ahmedabad <span>+</span></div><div class="accordion-content">Board the train/flight for your home town. Tour concludes.</div></div>
+</div>
+
+<div id="itinerary-7N8D-POLO" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Arrival - Vadodara <span>+</span></div><div class="accordion-content">Arrive at designated reporting place, proceed to **Vadodara**. On arrival free time for relaxation.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Vadodara Local Sightseeing <span>+</span></div><div class="accordion-content">Morning proceed to local sightseeing of **Vadodara**. Visit **Vadodara Museum Picture Gallery** followed by a visit to **Laxmi Vilas Palace** and **Fateh Singh Palace** where we get to see the paintings of Raja Ravi Varma. Evening photo-stop at **Sursagar Lake** and free time for shopping at the local Market.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Vadodara – Narmada Tent City (Hotel) <span>+</span></div><div class="accordion-content">Morning proceed to **Narmada tent City**. En-route visit to **Garudeshwar Temple** – Temple of lord Datta. On arrival at Narmada Tent city, visit to **Sardar sarovar dam**, **selfie point** & **valley of flowers**. Later visit **The Statue of unity** dedicated to "Iron Man of India" Sardar Vallabhbhai Patel. Experience stunning view from **Observatory deck**. Later enjoy **Statue of Unity Laser show** & **Illumination Tour** (Subject to Operation).</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Narmada Tent City Ecotourism <span>+</span></div><div class="accordion-content">Today proceed to **Ecotourism tour** - visit **Vishwa Van**, **Khalwani Eco Tourism Site**, **Aarogya Van**, **Ekta nursery**, **cactus garden**, **butterfly park** and **Dino Trail**. Also visit **Unity Glow Garden**. Later enjoy some leisure time at tent city.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Narmada Tent City – Ahmedabad <span>+</span></div><div class="accordion-content">Morning proceed to **Ahmedabad**. On arrival Visit **Sabarmati Ashram** – the home of Mahatma Gandhi. Later enjoy free time for shopping. Evening proceed to visit **Akshardham**. Evening free for relaxation.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 6: Ahmedabad – Rani ki Vav – Polo Forest <span>+</span></div><div class="accordion-content">Today proceed to visit the UNESCO site **“Rani ki Vav”** (Queen of all step wells). Later visit the marvellous **Modhera Sun Temple**. Then we visit **The iconic Atal Bridge** and pass by **Kankaria Lake**. Later proceed to **Polo Forest**.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 7: Polo Forest <span>+</span></div><div class="accordion-content">Today morning proceed to **Polo Forest trek**. Later we proceed to visit **Lakhenana Jain Dera**, **Shiv Panchayatan Mandir**, **Lord parshwanath Temple**, **Sun Temple**. Evening free for leisure.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 8: Departure from Ahmedabad <span>+</span></div><div class="accordion-content">Later proceed to **Ahmedabad**. Board the train / flight to your hometown. Tour Concludes.</div></div>
+</div>
+
+<div id="itinerary-4N5D-SOU" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Ahmedabad Arrival & Local <span>+</span></div><div class="accordion-content">Arrive at designated reporting place, on arrival visit **Sabarmati Ashram** – the home of Mahatma Gandhi. Later enjoy free time for shopping at **Teen Darwaja** or **Laal Darwaja**. Then we visit **The iconic Atal Bridge** - To feel the joy of walking above the river, we also pass by **Kankaria Lake**.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 2: Ahmedabad - Science City <span>+</span></div><div class="accordion-content">Visit **Science City** – an ambitious initiative of the government of Gujarat to trigger an inquiry of science in the mind of a common citizen. Visit **The Aquatics gallery**, India’s largest public aquarium.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 3: Ahmedabad - ISRO Museum <span>+</span></div><div class="accordion-content">Visit **ISRO Museum** or **Vikram Sarabhai Space Exhibition (VSSE)**. This museum features a selection of exhibits on space exploration, models, a gift shop, etc. Later visit **Akshardham Temple**.</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 4: Ahmedabad - Narmada Tent City / Hotel <span>+</span></div><div class="accordion-content">Proceed to **Narmada Tent City**. On arrival visit **Sardar Sarovar dam**, **selfie point** & **valley of Flowers**. Later visit **The Statue of Unity** dedicated to Sardar Vallabhbhai Patel. Experience a stunning view from the **Observatory deck**. Later enjoy the **Statue of Unity Laser show** & **Illumination Tour** (Subject to Operation).</div></div>
+    <div class="accordion"><div class="accordion-header">DAY 5: Departure from Ahmedabad <span>+</span></div><div class="accordion-content">Later proceed to **Ahmedabad**. Board the train / flight to your hometown. Tour Concludes.</div></div>
+</div>
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

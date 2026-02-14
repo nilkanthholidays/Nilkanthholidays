@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+<div class="filter-buttons">
+    <button onclick="showItinerary('2N3D-JSL')">2N / 3D </button>
+    <button onclick="showItinerary('2N3D-UDP')">2N / 3D </button>
+    <button onclick="showItinerary('3N4D-KUMB')">3N / 4D </button>
+    <button onclick="showItinerary('3N4D-CHITTO')">3N / 4D </button>
+    <button onclick="showItinerary('5N6D-JSL')">5N / 6D </button>
+    <button onclick="showItinerary('5N6D-UDP')">5N / 6D </button>
+    <button onclick="showItinerary('6N7D')">6N / 7D </button>
+    <button onclick="showItinerary('7N8D')">7N / 8D </button>
+</div>
+
+<div id="itinerary-2N3D-JSL" class="itinerary">
+    <div class="accordion"><div class="accordion-header">Day 01 : Arrival <span>+</span></div><div class="accordion-content">On arrival meet & greet your driver and transfer to hotel. Evening visit the **Gadisar Lake** to enjoy the Sunset view over the fort. Overnight Jaisalmer.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02 : Inn Jaisalmer <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel drive towards **Longewala**. Visit the **Indo – Pak border**. Visit the **Tanot Mata Temple** & **War Memorial Museum**. Later drive towards **Sam Sand Dunes**. On arrival check-in to the desert camp. Evening enjoy the Sunset view at the dunes during the camel Safari. Later relish the dinner with cultural dances. Overnight at the desert camp.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03 : Departure <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel embark for the sightseeing tour of the city. We will visit the **Jaisalmer Fort**, **Jain Temple**, **Salim Singh Ki Haveli** & **Patwa Haveli**. Later drop at Jaisalmer Airport / Railway station for journey towards home.</div></div>
+</div>
+
+<div id="itinerary-2N3D-UDP" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01 : Arrival <span>+</span></div><div class="accordion-content">Arrive in **Udaipur**, where your personal driver will pick you up from the airport or railway station and transfer you to your hotel. Check-in at the hotel and rest for a while before heading out for a half-day sightseeing adventure. Explore iconic attractions including the **City Palace**, the fascinating **Vintage Car Museum**, and enjoy a serene boat ride on **Lake Pichola**. Experience the thrill of the **Karni Mata Ropeway**, riding a cable car to witness breathtaking panoramic views of Udaipur, dotted with lakes and temples. In the evening, immerse yourself in the local culture by strolling through the bustling markets and indulging in delicious street food. Return to your hotel for an overnight stay.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02 : Udaipur Sightseeing With Bahubali Hill <span>+</span></div><div class="accordion-content">After breakfast we will start city tour of **Udaipur**. Driver will pick you up from your hotel in Udaipur and drive to **Bahubali Hill**, **Saheliyon ki Bari**, **Jagdish Temple**, **Sajjangarh Palace**, **Jag Mandir Palace** and famous **Lake Pichola**. After that come back to your hotel and overnight stay in Hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day : 03 : Nathdwara Shrinathji – Haldighati + Drop <span>+</span></div><div class="accordion-content">After breakfast excursion of Udaipur visit : **Eklingji mahadev temple**, **nathdwara shrinathji temple** & **haldighati maharana prtap museum**. After return back Udaipur drop at nearby Railway Station.</div></div>
+</div>
+
+<div id="itinerary-3N4D-KUMB" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01 : Arrival <span>+</span></div><div class="accordion-content">Meet our driver at Udaipur Airport /Railway Station. Check-in at Hotel & Day for Leisure. If time allows you explore local market, which is famous for its traditional lifestyle, pichwai & miniature paintings, handicraft silver and copper jewelry, sculptures, gemstone and minakari items after that stay at Udaipur Hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02 : Udaipur Sightseeing <span>+</span></div><div class="accordion-content">After breakfast we will start city tour of **Udaipur**. the city of lakes Udaipur is surrounded by azure water lakes and located in lush green hills of Aravallis. Udaipur is famous fot fairy-tale palaces, lakes, temples, gardens, vibrant and colourful festivals and narrow lanes strewn with stalls, carry the flavor of a heroic past, epitomizing valor and chivalry. You will explore places of Udaipur - **City Palace**, **Sajjangarh Palace**, **Vintage Car Museum**, **Jag Mandir Palace** and famous **Lake Pichola**. After that come back to your hotel and overnight stay in Hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03 : Udaipur – Kumbhalgarh - Udaipur <span>+</span></div><div class="accordion-content">After having breakfast at the hotel we start our trip from Udaipur to **Kumbhalgarh Fort**, which is 80 kms and takes approximately 2 hrs to reach. Kumbhalgarh Fort is birthplace of Mewar's legendary king **Maharana Pratap**. It has second largest wall after the great wall of china. Kumbhalgarh is the second most important fortress in Mewar region after Chittorgarh Fort which is also cradled in Aravali Ranges. There is a magnificent array of temples built by the Mauryas of which the most picturesque place is the **Badal Mahal** or the palace of the clouds and who want to brush up their knowledge of the Mewar dynasty they can experience at Sunset, a beautiful light and sound show is organised in the fort. In evening head back to Udaipur. overnight stay in Udaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day : 04 : Departure <span>+</span></div><div class="accordion-content">After Breakfast, Check - out from hotel and drop to Udaipur Airport/ Railway Station.</div></div>
+</div>
+
+<div id="itinerary-3N4D-CHITTO" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day : 01 Udaipur <span>+</span></div><div class="accordion-content">Welcome to **Udaipur**. Udaipur was founded in 1553 by **Maharana Udai Singh II** as the new capital of Mewar Kingdom. Famously known as ‘The City of Lake’ and often referred to as the 'Venice of the East'. Udaipur is located around azure water lakes and is hemmed in by lush green hills of Aravallis. On arrival at the airport, proceed to your hotel. Rest of the day is at leisure. Overnight in Udaipur. Note: Optional: In the evening you can enjoy a boat ride on the **Lake Pichola** at an direct payment basis.</div></div>
+    <div class="accordion"><div class="accordion-header">Day : 02 Udaipur – City Tour <span>+</span></div><div class="accordion-content">Welcome to **Udaipur**. Udaipur was founded in 1553 by **Maharana Udai Singh II** as the new capital of Mewar Kingdom. Famously known as ‘The City of Lake’ and often referred to as the 'Venice of the East'. Udaipur is located around azure water lakes and is hemmed in by lush green hills of Aravallis. On arrival at the airport, proceed to your hotel. Rest of the day is at leisure. Overnight in Udaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day : 03 Udaipur – Chittorgarh – Udaipur <span>+</span></div><div class="accordion-content">Today after breakfast we visit **Chittorgarh Fort** – symbol of bravery of Rajputs also an UNESCO world heritage site. Here we will see **Ranakumbha Palace** – place where founder of Udaipur Maharana Udai Singh was born, **Meera Mandir** – was once the home of famous bhakti poetess Meerabai, **Vijay Stambha** – victory monument constructed by Mewar king to commemorate victory over Mahmud Khilji and **Queen Padmini’s Palace** – located amidst water bodies, this is the place where Aladdin Khilji was permitted to see the mirror image of Queen Padmini. In the evening return to Udaipur. Overnight in Udaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day : 04 Udaipur – Hometown <span>+</span></div><div class="accordion-content">After breakfast proceed to Udaipur Airport/ Station to board flight or train to your hometown. Holiday Concludes. Let’s stay in touch on Facebook\email and meet again on another memorable Holiday. See you soon!</div></div>
+</div>
+
+<div id="itinerary-5N6D-JSL" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1 : Jaipur Arrival <span>+</span></div><div class="accordion-content">Pick up from Jaipur Airport / Railway Station and transfer to hotel. On the way visit **Sisodiya Rani Temple**, **Laxmi Narayan Temple**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2 : Jaipur Sightseeing <span>+</span></div><div class="accordion-content">Jaipur local sightseeing covering **HawaMahal**, **City Palace**, **Amer Fort**, **JantarMantar**, **Nahargarh Fort**, **JalMahal**, **Jaigarh Fort**, **Rambagh Palace** and **PannaMeenaKaKund**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3 : Jaipur – Jodhpur <span>+</span></div><div class="accordion-content">Transfer from Jaipur to **Jodhpur**. On the way visit the **Mehrangarh Fort**, **UmaidBhawan Palace**, **Balsamand Lake**, **Kaylana Lake**, **GhantaGhar**, **RaoJodha Desert Rock Park**, **Mandore Gardens**, **MotiMahal**, **PhoolMahal** and **JaswantThada**. Overnight at Jodhpur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Jodhpur – Jaisalmer <span>+</span></div><div class="accordion-content">After breakfast we drive to **Jaisalmer** and check in to Hotel. After freshup Evening visit the **Gadisar Lake** to enjoy the Sunset view over the fort. Overnight Jaisalmer.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05 : Inn Jaisalmer <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel drive towards **Longewala**. Visit the **Indo – Pak border**. Visit the **Tanot Mata Temple** & **War Memorial Museum**. Later drive towards **Sam Sand Dunes**. On arrival check-in to the desert camp. Evening enjoy the Sunset view at the dunes during the camel Safari. Later relish the dinner with cultural dances. Overnight at the desert camp.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06 : Departure <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel embark for the sightseeing tour of the city. We will visit the **Jaisalmer Fort**, **Jain Temple**, **Salim Singh Ki Haveli** & **Patwa Haveli**. Later drop at Jaisalmer Airport / Railway station for journey towards home.</div></div>
+</div>
+
+<div id="itinerary-5N6D-UDP" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1 : Jaipur Ariival <span>+</span></div><div class="accordion-content">Pick up from Jaipur Airport / Railway Station and transfer to hotel. On the way visit **Sisodiya Rani Temple**, **Laxmi Narayan Temple**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2 : Jaipur Sightseeing <span>+</span></div><div class="accordion-content">Jaipur local sightseeing covering **HawaMahal**, **City Palace**, **Amer Fort**, **JantarMantar**, **Nahargarh Fort**, **JalMahal**, **Jaigarh Fort**, **Rambagh Palace** and **PannaMeenaKaKund**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3 : Jaipur – Jodhpur <span>+</span></div><div class="accordion-content">Transfer from Jaipur to **Jodhpur**. On the way visit the **Mehrangarh Fort**, **UmaidBhawan Palace**, **Balsamand Lake**, **Kaylana Lake**, **GhantaGhar**, **RaoJodha Desert Rock Park**, **Mandore Gardens**, **MotiMahal**, **PhoolMahal** and **JaswantThada**. Overnight at Jodhpur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4 : Jodhpur – Udaipur <span>+</span></div><div class="accordion-content">After breakfast check out from hotel and transfer from Jodhpur to **Udaipur**. Overnight at Udaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5 : Udaipur Sightseeing <span>+</span></div><div class="accordion-content">Udaipur local sightseeing covering **City Palace**, **Lake Pichola**, **FatehSagar Lake**, **Monsoon palace**, **Jag Mandir**, **Saheliyon Ki Bari**, **GulabBagh**, **MaharanaPratap Memorial**, **Vintage Collection of Classic Car Museum**, **Sajjangarh Wildlife Sanctuary** and **Shilpgram**. Overnight at Udaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6 : Departure <span>+</span></div><div class="accordion-content">After Breakfast checkout from hotel and transfer Airport/Railway Station. Tour End.</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1 : Jaipur Arrival <span>+</span></div><div class="accordion-content">Pick up from Jaipur Airport / Railway Station and transfer to hotel. On the way visit **Sisodiya Rani Temple**, **Laxmi Narayan Temple**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2 : Jaipur Sightseeing <span>+</span></div><div class="accordion-content">Jaipur local sightseeing covering **HawaMahal**, **City Palace**, **Amer Fort**, **JantarMantar**, **Nahargarh Fort**, **JalMahal**, **Jaigarh Fort**, **Rambagh Palace** and **PannaMeenaKaKund**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3 : Jaipur – Jodhpur <span>+</span></div><div class="accordion-content">After breakfast we drive to **jodhpur** and check in to Hotel. After freshup Evening visit the **local market** and then back to hotel dinner and overnight stay at hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Jodhpur Sightseeing <span>+</span></div><div class="accordion-content">After breakfast we visit the **Mehrangarh Fort**, **UmaidBhawan Palace**, **Balsamand Lake**, **Kaylana Lake**, **GhantaGhar**, **RaoJodha Desert Rock Park**, **Mandore Gardens**, **MotiMahal**, **PhoolMahal** and **JaswantThada**, Overnight at Jodhpur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Jodhpur – Jaisalmer <span>+</span></div><div class="accordion-content">After breakfast we drive to **Jaisalmer** and check in to Hotel. After freshup Evening visit the **Gadisar Lake** to enjoy the Sunset view over the fort. Overnight Jaisalmer.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06 : Inn Jaisalmer <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel drive towards **Longewala**. Visit the **Indo – Pak border**. Visit the **Tanot Mata Temple** & **War Memorial Museum**. Later drive towards **Sam Sand Dunes**. On arrival check-in to the desert camp. Evening enjoy the Sunset view at the dunes during the camel Safari. Later relish the dinner with cultural dances. Overnight at the desert camp.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 07 : Departure <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel embark for the sightseeing tour of the city. We will visit the **Jaisalmer Fort**, **Jain Temple**, **Salim Singh Ki Haveli** & **Patwa Haveli**. Later drop at Jaisalmer Airport / Railway station for journey towards home.</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01 : Arrival <span>+</span></div><div class="accordion-content">On arrival meet & greet your driver and transfer to hotel. Evening visit the **Gadisar Lake** to enjoy the Sunset view over the fort. Overnight Jaisalmer.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02 : Jaisalmer Sightseeing <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel embark for the sightseeing tour of the city. We will visit the **Jaisalmer Fort**, **Jain Temple**, **Salim Singh Ki Haveli** & **Patwa Haveli**. Later drop at hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03 : Jaisalmer camp <span>+</span></div><div class="accordion-content">After delicious breakfast at the hotel drive towards **Longewala**. Visit the **Indo – Pak border**. Visit the **Tanot Mata Temple** & **War Memorial Museum**. Later drive towards **Sam Sand Dunes**. On arrival check-in to the desert camp. Evening enjoy the Sunset view at the dunes during the camel Safari. Later relish the dinner with cultural dances. Overnight at the desert camp.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Jaisalmer to Jodhpur <span>+</span></div><div class="accordion-content">After breakfast we drive to **Jodhpur** and transferred to your hotel. In the evening Visit **Clock Tower** and **Market** of Jodhpur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05 : Jodhpur Sightseeing <span>+</span></div><div class="accordion-content">After breakfast, enjoy a tour of Jodhpur starts **Mehrangarh Fort**, **Jaswant Thada** and after lunch visit **Umed Bhawan Museum**. The rest of the day is at leisure for independent activities. Overnight in Jodhpur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06 : Jodhpur to Jaipur <span>+</span></div><div class="accordion-content">After breakfast we drive to **Jaipur** sightseeing tour of the city. On the way visit **Sisodiya Rani Temple**, **Laxmi Narayan Temple**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 07 : Jaipur Sightseeing <span>+</span></div><div class="accordion-content">Jaipur local sightseeing covering **HawaMahal**, **City Palace**, **Amer Fort**, **JantarMantar**, **Nahargarh Fort**, **JalMahal**, **Jaigarh Fort**, **Rambagh Palace** and **PannaMeenaKaKund**. Overnight at Jaipur.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 08 : Departure <span>+</span></div><div class="accordion-content">After breakfast checkout from hotel and proceed Airport / Railway Station. Tour end, But Sweet Memories Always Remain...</div></div>
+</div>
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

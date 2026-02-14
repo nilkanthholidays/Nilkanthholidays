@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <h2 style="text-align:center;margin:30px 0;">Choose Your Itinerary (Tamil Nadu)</h2>
+  <div class="filter-buttons">
+    <button onclick="showItinerary('3N4D')">3 Nights / 4 Days</button>
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days</button>
+  </div>
+
+  <div id="itinerary-3N4D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">Day 01: Arrival in Coimbatore <span>+</span></div><div class="accordion-content">After arrival in **Coimbatore airport**, you'll be greeted and transferred to the hotel[cite: 2]. After refreshing, you can go shopping in **Brookefields Mall**[cite: 3].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02: A Spiritual Sightseeing <span>+</span></div><div class="accordion-content">After breakfast, visit temples such as **Arulmigu Murugan Temple** in Marudhamalai, **Eachanari Vinayagar Temple**, and **Sree Ayyappan Temple**[cite: 5]. In the evening, meditate in **Dhyanalingam**[cite: 6]. Overnight stay in the hotel[cite: 6].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03: A trip to Marudhamalai - Adiyogi <span>+</span></div><div class="accordion-content">After a scrumptious breakfast, head to **Marudhamalai Murugan temple** to seek the blessings of Lord Murugan[cite: 8, 9]. Afterward, witness the majestic **Adiyogi statue of Lord Shiva** and indulge in a meditation[cite: 9]. Return to the hotel for the overnight stay[cite: 10].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 04: Departure <span>+</span></div><div class="accordion-content">On the final leg of your trip, visit the local markets to get cheap cloth from top brands before catching your return flight[cite: 12].</div></div>
+</div>
+
+<div id="itinerary-5N6D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01: Arrival at Madurai <span>+</span></div><div class="accordion-content">Arrive at **Madurai Airport/Railway Station** and transfer to Madurai. Do a VIP darshan at **Meenakshi temple** and at **Sundareswaran temple** with a pandit ji as a guide to explain the spiritual and historical aspects of both temples[cite: 14]. Overnight Stay[cite: 15].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02: Madurai – Rameshwaram <span>+</span></div><div class="accordion-content">After breakfast, drive to **Rameshwaram**[cite: 16]. On the way, stop at the **Pamban Bridge**[cite: 16]. On arrival, check into the hotel[cite: 17]. In the afternoon, proceed for sightseeing of Rameshwaram, including the **Ramanathaswamy temple**, **Agnitheertham**, **Ramjharoka temple**, **Sri Panchmukhi Hanuman temple**, and the **floating stone**[cite: 17]. Overnight stay at the hotel in Rameshwaram[cite: 17].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03: Inn Rameshwaram <span>+</span></div><div class="accordion-content">After breakfast, proceed for Rameshwaram Darshan which includes **Rudrabhishekam** with **22 Kund snan** (bathing in the 22 sacred kunds) with a guide, followed by a VIP darshan with Pandit ji[cite: 18]. Also visit **Dhanush Kodi**, **Ram Setu**, and the **Great Abdul Kalam memorial Tour**[cite: 18]. The Dr. A.P.J. Abdul Kalam’s memorial is a must-visit attraction in Rameswaram, paying homage to the former president, scientist, and inspiring personality[cite: 19]. Return for an overnight stay in Rameshwaram[cite: 20].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 04: Rameshwaram – Kanyakumari <span>+</span></div><div class="accordion-content">After breakfast, proceed to **Kanyakumari**[cite: 20]. Visit **Swami Vivekanandha rock**, **Temple**, **Gandhi Memorial**, **Triveni Sangam**, and the local market[cite: 20]. Overnight stay in Kanyakumari[cite: 20].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05: Kanyakumari - Trivandrum <span>+</span></div><div class="accordion-content">After breakfast, proceed to **Trivandrum** for sightseeing[cite: 21]. Visit the **Padmanabha swami Temple**, **Museum**, **Zoo**, and **Art Gallery**[cite: 21]. Overnight at Trivandrum[cite: 21].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06: Departure <span>+</span></div><div class="accordion-content">Enjoy a delicious breakfast and, if time allows, proceed to the Airport or Railway Station for your return journey home with sweet memories[cite: 22].</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01: Arrival at Madurai <span>+</span></div><div class="accordion-content">Arrive at **Madurai Airport/Railway Station** and transfer to Madurai. Have darshan at **Meenakshi temple** and at **Sundareswaran temple**, exploring the spiritual and historical aspects of both[cite: 24]. Overnight Stay[cite: 24].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02: Madurai – Rameshwaram <span>+</span></div><div class="accordion-content">After breakfast, drive to **Rameshwaram**[cite: 25]. Stop at the **Pamban Bridge** on the way[cite: 25]. On arrival, check into the hotel[cite: 26]. In the afternoon, proceed for sightseeing of Rameshwaram, including the **Ramanathaswamy temple**, **Agnitheertham**, **Ramjharoka temple**, **Sri Panchmukhi Hanuman temple**, and the **floating stone**[cite: 26]. Overnight stay at the hotel in Rameshwaram[cite: 26].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03: Inn Rameshwaram <span>+</span></div><div class="accordion-content">After breakfast, proceed for Rameshwaram Darshan[cite: 27]. This includes **Rudrabhishekam** with **22 Kund snan** (bathing in the 22 kunds where Bhagwan Ram bathed to purify himself)[cite: 27]. You will also visit **Dhanush Kodi**, **Ram Setu**, and the **Great Abdul Kalam memorial**[cite: 27]. Dr. A.P.J. Abdul Kalam’s memorial is a must-visit attraction, paying homage to the former president, leader, and scientist[cite: 28]. Return for an overnight stay in Rameshwaram[cite: 29].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 04: Rameshwaram – Kanyakumari <span>+</span></div><div class="accordion-content">After breakfast, proceed to **Kanyakumari**[cite: 29]. Visit **Swami Vivekanandha rock**, **Temple**, **Gandhi Memorial**, **Triveni Sangam**, and the local market[cite: 29]. Overnight stay in Kanyakumari[cite: 29].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05: Kanyakuari - Trivandrum/Kovalam <span>+</span></div><div class="accordion-content">After breakfast, checkout from Kanyakumari and proceed to **Trivandrum**[cite: 30]. You can spend the day exploring the beautiful **beaches of Kovalam**, such as **Hawah beach**, or indulge in Ayurvedic treatments[cite: 31, 32]. Visit **Azhimala Shiva Temple**, a popular pilgrim center, and explore the shopping spots[cite: 32, 33]. Overnight stay at Trivandrum[cite: 33].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06: Inn Trivandrum <span>+</span></div><div class="accordion-content">In the morning, after breakfast, check out from Kovalam and proceed to Trivandrum for local sightseeing[cite: 34]. Visit the **Shree Padmanabhaswamy Temple**[cite: 35]. You can also visit the serene and picturesque **Poovar island** (taking a boat ride is an option)[cite: 36, 37]. Other visits include the **Napier Museum**, **Zoo**, and **Art gallery**[cite: 37]. Overnight stay at Trivandrum[cite: 37].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 07: Departure <span>+</span></div><div class="accordion-content">Enjoy a delicious breakfast and, if time allows, proceed to the Airport or Railway Station for your return journey home with sweet memories[cite: 38].</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+</div>
+
+<div id="itinerary-9N10D" class="itinerary" style="display:none;">
+</div>
+
+<div id="itinerary-12N13D" class="itinerary" style="display:none;">
+</div>
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  
+  <div class="filter-buttons">
+<h2 style="text-align:center;margin:30px 0;">Choose Your Itinerary(Leh Ladakh)</h2>
+  <div class="filter-buttons">
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days</button>
+    <button onclick="showItinerary('7N8D')">7 Nights / 8 Days</button>
+    <button onclick="showItinerary('8N9D')">8 Nights / 9 Days</button>
+    <button onclick="showItinerary('9N10D')">9 Nights / 10 Days</button>
+    <button onclick="showItinerary('10N11D')">10 Nights / 11 Days</button>
+  </div>
+
+  <div id="itinerary-5N6D" class="itinerary">
+  <div class="accordion"><div class="accordion-header">Day 01 : Leh Arrival <span>+</span></div><div class="accordion-content">Hello And Julley, Welcome to Leh. And finally, your dream trip is going to start. We will start our services from the Airport. We will pick you and transfer to the hotel. It will be acclimatization day and you will rest for a day which is very important. Later in the evening, you can visit Leh bazaar, Shanti Stupa and Leh Palace. Overnight Stay in Hotel</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Leh To Sham Valley (35 Kms – 1 Hrs One Way) <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. Gear up & head out and explore the beautiful land of Leh. Visit Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Later return to Leh, Enroute visit Magnetic Hill. Return to the hotel and enjoy a delicious dinner. Overnight stay is provided at Leh</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Leh To Nubra Valley Via Khardung La Pass (125 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">In the morning you, We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. Later On Visit Sand Dunes of Nubra Valley and can enjoy ride of Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. After a memorable day in Nubra Valley, it’s time to relax and end your day with a tempting Overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Nubra To Pangong Via Shyok River <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6 – 7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China’s possession). Visit the exact location of the famous movie “Three idiots” & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake.Overnight stay at the Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Pangong To Leh <span>+</span></div><div class="accordion-content">After healthy breakfast at the finest landscape. then we get ready to check another location that would leave us awestruck off our list - the Rancho School (Known as 3 Idiot School), Thikshey & Shey Monastery. Evening shopping at the Leh Main Market and try some local dishes. Overnight Stay In Leh.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06: Departure <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01 : Leh Arrival <span>+</span></div><div class="accordion-content">Hello And Julley, Welcome to Leh. And finally, your dream trip is going to start. We will start our services from the Airport. We will pick you and transfer to the hotel. It will be acclimatization day and you will rest for a day which is very important. Later in the evening, you can visit Leh bazaar, Shanti Stupa and Leh Palace. Overnight Stay in Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Leh To Sham Valley (35 Kms – 1 Hrs One Way) <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. Gear up & head out and explore the beautiful land of Leh. Visit Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Later return to Leh, Enroute visit Magnetic Hill. Overnight stay is provided at Leh</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Leh To Nubra Valley Via Khardung La Pass (125 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">In the morning you, We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. Later On Visit Sand Dunes of Nubra Valley and can enjoy ride of Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. After a memorable day in Nubra Valley, it’s time to relax and end your day with a tempting dinner and overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Turtuk Day Excursion (90 Kms – One Way) <span>+</span></div><div class="accordion-content">Post Breakfast, We will heal towards Turtuk Village (A village that India recapture from Pakistan in 1971). Which is last site of Pakistan Side. Then Visit LOC side Thang and Tyakshi Village. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are major source of income for the locals Visit Turtuk Waterfall and Turtuk Museum later on Enjoy the magnificent view of K2 peak while walking around. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Nubra To Pangong Via Shyok (160 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6 – 7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China’s possession). Visit the exact location of the famous movie “Three idiots” & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. Overnight stay in Pangong</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06 : Pangong To Leh (130 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">We get ready to check another location that would leave us awestruck off our list - the Pangong Lake! The first view of the lake will leave you spellbound and as we breathe that in. A sumptuous dinner with a chit-chat session would bring an end to the day. we will ride back to Leh, crossing Changla Pass 17,350 ft. (One Of the Highest Motorable road in the world). The ride will leave you spellbound with beautiful views and mind-blowing landscape. Enroute visit Rancho School (Known as 3 Idiot School), Thikshey & Shey Monestary. We retreat to the hotel for a night's stay. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07: Departure <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-7N8D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01 : Leh Arrival <span>+</span></div><div class="accordion-content">Hello And Julley, Welcome to Leh. And finally, your dream trip is going to start. We will start our services from the Airport. We will pick you and transfer to the hotel. It will be acclimatization day and you will rest for a day which is very important. Later in the evening, you can visit Leh bazaar, Shanti Stupa and Leh Palace. Overnight Stay in Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Leh To Sham Valley (35 Kms – 1 Hrs One Way) <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. Gear up & head out and explore the beautiful land of Leh. Visit Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Later return to Leh, Enroute visit Magnetic Hill. Overnight stay is provided at Leh</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Leh To Nubra Valley Via Khardung La Pass (125 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">In the morning you, We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. Later On Visit Sand Dunes of Nubra Valley and can enjoy ride of Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. After a memorable day in Nubra Valley, it’s time to relax and end your day with a tempting dinner and overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Turtuk Day Excursion (90 Kms – One Way) <span>+</span></div><div class="accordion-content">Post Breakfast, We will heal towards Turtuk Village (A village that India recapture from Pakistan in 1971). Which is last site of Pakistan Side. Then Visit LOC side Thang and Tyakshi Village. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are major source of income for the locals Visit Turtuk Waterfall and Turtuk Museum later on Enjoy the magnificent view of K2 peak while walking around. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Nubra To Pangong Via Shyok (160 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6 – 7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China’s possession). Visit the exact location of the famous movie “Three idiots” & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. Overnight stay in Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06 : Pangong to Hanle (175 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">After an early breakfast drive to Hanle. Hanle in changthang region of Ladakh is one of the most beautifull calm and soul loosing places in India. Hanle has a lovely hanle monastery offering some great aerial views of whole village that is a home of about 1000 people. Hanle monastery is a 17th century monastery of the Drukpa lineage of the Kagyu school of Tibetan Buddhism. Monastey is home to about 60 monks. The main monastery, one of the largest and best known of ladakh’s monasteries, was built under the protange of the kind singee namgyal. The views from the top of monastery are just breath taking. Hanle is also house an Indian astronomical observatory which is the world highest observatory in the world at a staggering height of 4500 mtrs. Overnight in local Homestay.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07 : Hanle To Leh (280 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast we check out from the Camp and explore the lake area and Korzok village. Later drive back to Leh. you’ll drive back on the same route till Mahe bridge and then take the beautiful road along the river Indus to Leh. Arrive Leh for dinner and overnight stay. Enroute visit Rancho School (Known as 3 Idiot School), Thikshey & Shey Monestary. We retreat to the hotel for a night's stay. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08: Departure <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01 : Leh Arrival <span>+</span></div><div class="accordion-content">Hello And Julley, Welcome to Leh. And finally, your dream trip is going to start. We will start our services from the Airport. We will pick you and transfer to the hotel. It will be acclimatization day and you will rest for a day which is very important. Later in the evening, you can visit Leh bazaar, Shanti Stupa and Leh Palace. Overnight Stay in Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Leh To Kargil Via Lamayuru (220 Kms – 7 Hrs One Way) <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. Gear up & head out and explore the beautiful land of Leh. Visit Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Later return to Leh, Enroute visit Magnetic Hill. Later on Enjoy the view of Moonland.Then visit Fotula Pass, Namikla Pass & Mulbek. Overnight stay is provided at Kargil.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Kargil To Leh (220 Kms – 7 Hrs One Way) <span>+</span></div><div class="accordion-content">After breakfast, proceed to your return journey to Leh. In the evening you will be reaching at Leh. Post check in have a wholesome Dinner. Overnight stay at Leh.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Leh To Nubra Valley Via Khardung La Pass (125 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">In the morning you, We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. Later On Visit Sand Dunes of Nubra Valley and can enjoy ride of Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. After a memorable day in Nubra Valley, it’s time to relax and end your day with a tempting dinner and overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Turtuk Day Excursion (90 Kms – One Way) <span>+</span></div><div class="accordion-content">Post Breakfast, We will heal towards Turtuk Village (A village that India recapture from Pakistan in 1971). Which is last site of Pakistan Side. Then Visit LOC side Thang and Tyakshi Village. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are major source of income for the locals Visit Turtuk Waterfall and Turtuk Museum later on Enjoy the magnificent view of K2 peak while walking around. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06 : Nubra To Pangong Via Shyok (160 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6 – 7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China’s possession). Visit the exact location of the famous movie “Three idiots” & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. Overnight stay in Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07 : Pangong To Tso Moriri (220 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">After breakfast drive to Tsomoriri Lake. It is a breathtaking journey on a trail that is literally a ‘no mans’ land. Vast lonely stretches on the Chanthang plateau makes this drive one of the best isolated drives of this tour. Tsomoriri is situated at an altitude of 4511m above sea level; with an area of about 140 Sq.km. Spend your evening watching shadows of the surrounding mountain and the varying depths of Tsomoriri lake. Stay in tented cottages/Hotels at Tso Moriri.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08 : Tso Moriri To Leh (260 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast we check out from the Camp and explore the lake area and Korzok village. Later drive back to Leh. you’ll drive back on the same route till Mahe bridge and then take the beautiful road along the river Indus to Leh. Enroute visit Rancho School (Known as 3 Idiot School), Thikshey & Shey Monestary. We retreat to the hotel for a night's stay. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09: Depature <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-9N10D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01 : Leh Arrival <span>+</span></div><div class="accordion-content">Hello And Julley, Welcome to Leh. And finally, your dream trip is going to start. We will start our services from the Airport. We will pick you and transfer to the hotel. It will be acclimatization day and you will rest for a day which is very important. Later in the evening, you can visit Leh bazaar, Shanti Stupa and Leh Palace. Overnight Stay in Hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Leh To Kargil Via Lamayuru (220 Kms – 7 Hrs One Way) <span>+</span></div><div class="accordion-content">Post a scrumptious breakfast, be ready for adventure. Gear up & head out and explore the beautiful land of Leh. Visit Hall of fame and feel the pull of the magnetic hill. Pray at the Gurudwara Pathar Sahib and watch the marvelous sight of the confluence of rivers of Indus and Zanskar. Later return to Leh, Enroute visit Magnetic Hill. Later on Enjoy the view of Moonland.Then visit Fotula Pass, Namikla Pass & Mulbek. Overnight stay is provided at Kargil.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Kargil To Leh (220 Kms – 7 Hrs One Way) <span>+</span></div><div class="accordion-content">After breakfast, proceed to your return journey to Leh. In the evening you will be reaching at Leh. Post check in have a wholesome Dinner. Overnight stay at Leh.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Leh To Nubra Valley Via Khardung La Pass (125 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">In the morning you, We will take you to Khardungla pass which was the world’s highest motorable road situated at 18,400 feet before Umling La pass gets opened. and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. Visit Diskit Monastery belonging to the 14th century, this monastery is considered to be the largest and oldest monastery in Nubra Valley. Also known as Diskit Gompa, the monastery's most prominent attraction is the huge Maitreya Buddha statue atop it, which was inaugurated by HH Dalai Lama. Later On Visit Sand Dunes of Nubra Valley and can enjoy ride of Double hump camel ride. These camels are very special and rare in the world, Which only finds in India after Mongolia. After a memorable day in Nubra Valley, it’s time to relax and end your day with a tempting dinner and overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Turtuk Day Excursion (90 Kms – One Way) <span>+</span></div><div class="accordion-content">Post Breakfast, We will heal towards Turtuk Village (A village that India recapture from Pakistan in 1971). Which is last site of Pakistan Side. Then Visit LOC side Thang and Tyakshi Village. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are major source of income for the locals Visit Turtuk Waterfall and Turtuk Museum later on Enjoy the magnificent view of K2 peak while walking around. Overnight stay in Nubra.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06 : Nubra To Pangong Via Shyok (160 Kms – 5 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast, take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6 – 7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China’s possession). Visit the exact location of the famous movie “Three idiots” & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. Overnight stay in Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07 : Pangong to Hanle (175 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">After an early breakfast drive to Hanle. Hanle in changthang region of Ladakh is one of the most beautifull calm and soul loosing places in India. Hanle has a lovely hanle monastery offering some great aerial views of whole village that is a home of about 1000 people. Hanle monastery is a 17th century monastery of the Drukpa lineage of the Kagyu school of Tibetan buddhism. Monastey is home to about 60 monks. The main monastery, one of the largest and best known of ladakh’s monasteries, was built under the protange of the kind singee namgyal. The views from the top of monastery are just breath taking. Hanle is also house an Indian astronomical observatory which is the world highest observatory in the world at a staggering height of 4500 mtrs. Overnight in local Homestay.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08 : Hanle To Tso Moriri (160 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">After breakfast drive to Tsomoriri Lake. It is a breathtaking journey on a trail that is literally a ‘no mans’ land. Vast lonely stretches on the Chanthang plateau makes this drive one of the best isolated drives of this tour. Tsomoriri is situated at an altitude of 4511m above sea level; with an area of about 140 Sq.km. Spend your evening watching shadows of the surrounding mountain and the varying depths of Tsomoriri lake. Stay in tented cottages/Hotels at Tso Moriri.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09 : Tso Moriri To Leh (260 Kms – 6 Hrs) <span>+</span></div><div class="accordion-content">Post breakfast we check out from the Camp and explore the lake area and Korzok village. Later drive back to Leh. you’ll drive back on the same route till Mahe bridge and then take the beautiful road along the river Indus to Leh. Enroute visit Rancho School (Known as 3 Idiot School), Thikshey & Shey Monestary. We retreat to the hotel for a night's stay. Overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 10: Depature <span>+</span></div><div class="accordion-content">Post breakfast, prepare for your departure. Depart from the mystical land of Ladakh and take home precious memories of your wonderful trip.</div></div>
+</div>
+
+<div id="itinerary-10N11D" class="itinerary" style="display:none;">
+  <div class="accordion"><div class="accordion-header">Day 01 : Delhi To Manali <span>+</span></div><div class="accordion-content">Reach Delhi by the evening by own. You will have to reach (Approx 5 PM) Majnu Ka Tila / Kashmiri Gate to board in Volvo to Manali. Overnight Journey.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 02 : Manali Arrival <span>+</span></div><div class="accordion-content">Upon arrival in Manali, we check in to our hotels and gear up for exploring the beautiful city! Explore the primal City filled with rich cultural heritage and generational traditions. It is a paradise for both the nature lovers as well as adventure enthusiasts as an escape from the hasty urban lifestyle. People can explore mall road, Hadimba devi temple, Vashishta by own. Overnight stay in Manali.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 03 : Manali To Jispa/Sarchu <span>+</span></div><div class="accordion-content">After Breakfast, we will start our Ladakh bike trip journey! We will cross the famous Atal Tunnel as we continue our journey towards Jispa. Witness a magnificent horse-shaped tunnel built at an altitude of whopping 10,171 feet and stretching up to 9.2 kms. We will ride via Chandra Valley before we reach our destination. Experience the dazzling panoramic views of the valley during your ride and immerse yourself in its exquisiteness. Enroute Sarchu, we will visit Suraj Tal, often referred as the lake of Sun God and it is widely believed by the locals that taking a dip will cleanse your soul and spirit; and Deepak Tal, the crystal clear water will make one feel the lake like a stunning blue sapphire. We will also cross the famous Baralacha Pass located at 16,616ft. which connects Lahaul district in Himachal Pradesh to Ladakh. Upon arrival, we would settle down in our campsite taking in the beauty of our starting point in Ladakh and revamp for our long ride tomorrow.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 04 : Jispa/Sarchu To Leh <span>+</span></div><div class="accordion-content">After breakfast, we will start our journey towards Leh. This route will give you a mesmerizing view of the landscape of this beautiful cold desert which leaves one spellbound. Tanglang La pass cuts through the mountains while one can witness a gentle stream flowing on a clear day surrounded by snow-capped mountains. During the ride, one can feel wind slapping against as it gets quite windy at times. Upon arrival, we settled down in the Hotel and the evening is left free up to our own disposal to explore the local market. It is recommended to browse through the local handicrafts and cuisines. Conclude your hectic day with fantastic dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 05 : Leh To Nubra Valley <span>+</span></div><div class="accordion-content">In the morning you, We will give you bikes for what you are wait We will take you to Khardungla pass which is the world's highest motor able pass and then Diskit, headquarters of Nubra Valley. Its attraction is that of an ancient monastery that was built in the 14th Century and is one of the oldest monasteries in Nubra Valley. Feel a sense of calm and spirituality of the location while exploring the ancient monastery. After a memorable day in Nubra Valley, it's time to relax and end your day with a tempting dinner and overnight stay in camps at Hunder Village of the Nubra Valley.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 06 : Turtuk Day Excursion <span>+</span></div><div class="accordion-content">After Breakfast, check out from the camps & visit Diskit Monastery. If time permits you can also go for ATV ride (personal expense) and then continue further till Turtuk. Turtuk falls in Baltistan- the place was under Pakistani control till 1971, so it is predominantly Muslim. Don't miss the chance to interact with the locals and their friendly behaviour - the whole feel is like being in Pakistan. You can try delicious apricots here which are major source of income for the locals Visit Turtuk Waterfall and Turtuk Museum later on Enjoy the magnificent view of K2 peak while walking around. Dinner and overnight stay in Turtuk.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 07 : Nubra To Pangong Via Shyok River <span>+</span></div><div class="accordion-content">After breakfast, visit Diskit & Hunder Villages and monasteries take a stroll around the place to see the life style of people living at the northernmost region of India. Proceed to Pangong Lake via Shyok Route. Pangong Lake is a salt water body of 120 km in length and 6-7 Km broad at the longest point. It is bisected by the international border between India & China (2/3 of the lake is in China's possession). Visit the exact location of the famous movie "Three idiots" & enjoy outing along the banks of the lake. One really feels very close to nature at Pangong Lake with its scenic surroundings. On a clear sunny day, you can see seven colour formations in the crystal-clear salt water lake. Overnight stay in Pangong.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 08 : Pangong To Leh Via Changla Pass <span>+</span></div><div class="accordion-content">We get ready to check another location that would leave us awestruck off our list - the Pangong Lake! The first view of the lake will leave you spellbound and as we breathe that in. A sumptuous dinner with a chit-chat session would bring an end to the day. we will ride back to Leh, crossing Changla Pass 17,350 ft. (third Highest Motorable road in the world). The ride will leave you spellbound with beautiful views and mind-blowing landscape. We retreat to the hotel for a night's stay. Dinner and overnight stay at the hotel.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 09 : Leh To Jispa / Sarchu Via Tanglang La Pass <span>+</span></div><div class="accordion-content">After breakfast, check out from the hotel and drive back to Jispa / Sarchu. After reaching Jispa/Sarchu you have the day to relax and explore the beautiful destination on your own. Enjoy a comfortable overnight stay at the Hotel/Camp.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 10 : Jispa / Sarchu To Manali <span>+</span></div><div class="accordion-content">After exploring Jispa’s vibrant views on foot, we will start our journey back to Manali via Sissu and Atal Tunnel. Upon reaching Manali, you can indulge in souvenir shopping and as evening approaches, travelers will assemble at the pick-up point and board their overnight bus to Delhi.</div></div>
+  <div class="accordion"><div class="accordion-header">Day 11 : Delhi Reached <span>+</span></div><div class="accordion-content">You will be arriving Delhi 8:00 AM. You can plan your upcoming tour accordingly.</div></div>
+</div><!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

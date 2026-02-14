@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Nilkanth Holidays</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:'Segoe UI',sans-serif; background:#fff;}
+
+    /* Navbar */
+    header {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: transparent;
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .logo {font-size:22px; font-weight:bold; color:#fff;}
+    nav ul {list-style:none; display:flex; gap:20px;}
+    nav ul li a {
+      text-decoration:none; color:#fff; font-weight:bold;
+      font-size:18px; transition:.3s; position:relative;
+    }
+    nav ul li a:hover {color:#ff8800;}
+    nav ul li a::after {
+      content:""; position:absolute; bottom:-5px; left:0;
+      width:0; height:3px; background:#ff8800; transition:.3s;
+    }
+    nav ul li a:hover::after {width:100%;}
+    .menu-toggle {display:none; flex-direction:column; gap:5px; cursor:pointer;}
+    .menu-toggle span {width:25px; height:3px; background:#fff; border-radius:2px;}
+    @media(max-width:768px){
+      nav {display:none; position:absolute; top:60px; left:0; width:100%; background:rgba(0,0,0,0.8); padding:15px 0;}
+      nav ul {flex-direction:column; align-items:center; gap:15px;}
+      nav.active {display:flex; justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero {position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;}
+    #slideshow {position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;}
+    .slide {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.5s ease-in-out;}
+    .slide.active {opacity:1;}
+    .hero-text {color:#fff; text-shadow:3px 3px 15px rgba(0,0,0,0.8); z-index:5; padding:0 15px;}
+    .hero-text h1 {font-size:3rem; font-weight:900;}
+    .hero-text span {font-size:3rem; font-weight:900; color:#e1de20;}
+    @media(max-width:768px){.hero-text h1,.hero-text span{font-size:2rem;}}
+    @media(max-width:480px){.hero-text h1,.hero-text span{font-size:1.6rem;}}
+
+    /* About Section */
+    .about-section {max-width:1100px; margin:50px auto; padding:20px;}
+    .about-section h2 {font-size:2rem; font-weight:800; text-align:center; margin-bottom:20px;}
+    .about-section p {text-align:center; font-size:1.1rem; line-height:1.8; color:#444;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero + Navbar -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <!-- <div class="logo">NILKANTH <span style="color:#ff8800;">HOLIDAYS</span></div> -->
+          <div class="logo-left" style="width:100px;">
+  <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%; height:auto;">
+</div>
+
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Background Slideshow -->
+     <div id="slideshow">
+      <img src="dubai.jpg" class="slide active" />
+      <img src="sii.jpg" class="slide" />
+      <img src="nepal.jpg" class="slide" />
+      <img src="h1.jpg" class="slide" />
+      <img src="simla.jpg" class="slide" />
+      <img src="Kerala.jpg" class="slide" />
+
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Choose Your Destination <span id="changingText">Dubai</span></h1>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h2>Who We Are</h2>
+    <p>
+      Nilkanth Holidays is your trusted travel partner, dedicated to making journeys memorable.  
+      We specialize in India & International tours, offering personalized experiences, comfort, and affordable packages.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-6xl mx-auto px-6 space-y-16">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div><img src="ab1.jpg" class="rounded-2xl shadow-lg" /></div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4">🌍 We Make Your Travel More Enjoyable</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Nilkanth Holidays is a specialized service that caters to individuals seeking thrilling and immersive travel experiences...
+        </p>
+      </div>
+    </div>
+    <!-- Block 2 -->
+  <div class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+    <div class="order-2 md:order-1">
+      <h3 class="text-2xl font-bold mb-4">🛡️ Safe Traveling</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Our commitment to your safety extends to every destination.  
+        We collaborate with local communities to ensure that your presence leaves a positive impact.  
+        Responsible travel is not just a buzzword for us.
+      </p>
+    </div>
+    <div class="order-1 md:order-2">
+      <img src="ab2.jpg" class="rounded-2xl shadow-lg" />
+    </div>
+  </div>
+
+  <!-- Block 3 -->
+   <div class="grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <img src="ab3.jpg" class="rounded-2xl shadow-lg" />
+    </div>
+    <div>
+      <h3 class="text-2xl font-bold mb-4">🌍 Experience The New Adventure</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Welcome to the beating heart of adventure! At Nilkanth Holidays, we don’t just curate trips; 
+        we craft experiences that etch themselves into the fabric of your memory.
+      </p>
+    </div>
+  </div>
+
+  <!-- Block 4 -->
+  <div class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+    <div class="order-2 md:order-1">
+      <h3 class="text-2xl font-bold mb-4">🛡️ Safe Traveling</h3>
+      <p class="text-gray-600 leading-relaxed" ">
+        Our commitment to your safety extends to every destination.  
+        We collaborate with local communities to ensure that your presence leaves a positive impact.  
+        Responsible travel is not just a buzzword for us.
+      </p>
+    </div>
+    <div class="order-1 md:order-2">
+      <img src="ab4.jpg" style="margin-bottom: 70px;" class="rounded-2xl shadow-lg" />
+    </div>
+  </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#000; color:#fff; padding:40px 20px 20px;">
+    <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
+      
+      <!-- Column 1 -->
+      <div>
+        <h3 style="margin-bottom:15px; color:#ff8800;">NILKANTH <span style="color:#fff;">HOLIDAYS</span></h3>
+        <p style="color:#ccc; font-size:14px; line-height:1.6;">
+          Best travel experiences with customized packages and amazing destinations.
+        </p>
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+         <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px;"><a href="index.html" style="text-decoration:none; color:#ccc;">Home</a></li>
+        <li style="margin-bottom:8px;"><a href="domestic.html" style="text-decoration:none; color:#ccc;">Domestic</a></li>
+        <li style="margin-bottom:8px;"><a href="Internatinol.html" style="text-decoration:none; color:#ccc;">Internatinol</a></li>
+        <li style="margin-bottom:8px;"><a href="about.html" style="text-decoration:none; color:#ccc;">About</a></li>
+        <li style="margin-bottom:8px;"><a href="packages.html" style="text-decoration:none; color:#ccc;">Packages</a></li>
+        <li style="margin-bottom:8px;"><a href="contact.html" style="text-decoration:none; color:#ccc;">Contact</a></li>
+      </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+      <h4 style="margin-bottom:15px; color:#ff8800;">Contact Us</h4>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Email: info@nilkanthholidays.in</p>
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 63538 53297</p>
+            <p style="color:#ccc; font-size:14px; line-height:1.6;">Phone: +91 88666 53297</p>
+
+      <p style="color:#ccc; font-size:14px; line-height:1.6;">Address: Second Floor, Satva Complex, 204, NR Sindhu Bhavan Rd, Thaltej, Ahmedabad, Gujarat 380059</p>
+    </div>
+    </div>
+
+    <!-- Bottom -->
+    <div style="text-align:center; margin-top:20px; border-top:1px solid #333; padding-top:15px; font-size:13px; color:#999;">
+      © 2025 Nilkanth Holidays. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Navbar toggle
+    const toggle=document.getElementById("menu-toggle");
+    const nav=document.getElementById("nav");
+    toggle.addEventListener("click",()=>nav.classList.toggle("active"));
+
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");
+    let currentSlide=0;
+    setInterval(()=>{
+      slides[currentSlide].classList.remove("active");
+      currentSlide=(currentSlide+1)%slides.length;
+      slides[currentSlide].classList.add("active");
+    },5000);
+
+    // Changing text
+    const places = ["Dubai","Singapore", "Nepal", "Bali", "Shimla", "Kerala"];
+    let i=0;
+    setInterval(()=>{
+      document.getElementById("changingText").textContent=places[i];
+      i=(i+1)%places.length;
+    },5000);
+  </script>
+</body>
+</html>

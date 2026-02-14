@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <div class="filter-buttons">
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('8N9D')">8 Nights / 9 Days</button>
+    <button onclick="showItinerary('10N11D')">10 Nights / 11 Days</button>
+</div>
+
+<div id="itinerary-5N6D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">DAY 1: Guwahati Airport / Rly Station –Shillong (100 kms / 03 hrs) <span>+</span></div><div class="accordion-content">Welcome to Awesome Assam[cite: 449]. [cite_start]Meet and be assisted by our representative at the airport/Railway Station[cite: 449]. [cite_start]Proceed to **Shillong**, also called 'Scotland of the East"[cite: 450]. Reach the majestic **Umiam Lake (Barapani)**. [cite_start]You may do the water sports here (Optional)[cite: 450]. On arrival at Shillong, check in at your hotel. [cite_start]Overnight stay in Shillong[cite: 450].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Shillong - Mawlynnong - Dawki – Shillong <span>+</span></div><div class="accordion-content">Morning after breakfast depart for a whole day excursion to **Mawlynnong** Village, which has earned the distinction of being the cleanest village in India[cite: 453]. [cite_start]It is situated 90 kms from Shillong[cite: 454]. [cite_start]**Dawki** lies 2 Kms from Bangladesh[cite: 455]. [cite_start]Dawki is a small village and its main attraction is the **Umngot River** that marks the natural separation between the Khasi and the Jaintia Hills[cite: 455]. [cite_start]Overnight stay at Shillong[cite: 456].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Cherrapunjee Excursion <span>+</span></div><div class="accordion-content">After breakfast, drive to **Cherrapunjee** (4,400 ft.), the wettest place in the world[cite: 459]. [cite_start]On the way enjoy the following places: **Shillong Peak** [cite: 460][cite_start], **Elephanta Falls** [cite: 461][cite_start], **Mawsmai Cave** [cite: 462][cite_start], **Nohkalikai falls** [cite: 463][cite_start], **Seven Sister waterfalls**[cite: 464]. [cite_start]Back to Shillong and Overnight stay at Shillong[cite: 465].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Shillong - Guwahati <span>+</span></div><div class="accordion-content">After Breakfast drive to **Guwahati**[cite: 467]. [cite_start]Check in at Hotel[cite: 468]. [cite_start]Guwahati, ‘The light of the East’ is the commercial capital of North East lying adjacent to the shores of the turbulent Brahmaputra[cite: 468]. [cite_start]Evening enjoy a **River cruise** over the river **Brahmaputra** (cruise charges additional)[cite: 469]. [cite_start]Overnight in Guwahati[cite: 470]. [cite_start]NOTE: River cruise depends on availability, water level and river condition[cite: 471].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Guwahati Local Sightseeings <span>+</span></div><div class="accordion-content">Morning starts the Full day sightseeing in and around this capital city of Assam [cite: 474][cite_start], covering **Kamakhya Temple** - Situated on top of the Nilachal Hill, MaaKamakhyaTemple is the most sacred among the tantrik shrines of Shakti worship in the world[cite: 474]; [cite_start]**Balaji Temple** [cite: 475][cite_start], **State Museum** [cite: 475][cite_start], **Navagraha Temple** - dedicated to the nine planets located on the top of Chhatrasal Hill [cite: 475][cite_start], **Umananda Temple** on Bhasmach - a Shiva temple located at the Peacock Island - smallest inhabited riverine island in the world [cite: 475][cite_start], **Sankardeva Kalakshetra** - is a cultural institution in the Panjabari area[cite: 475]. [cite_start]Overnight stay at Guwahati[cite: 476].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: GUWAHATI TO AIRPORT <span>+</span></div><div class="accordion-content">Early morning after breakfast transfer to Guwahati airport / Rly station[cite: 479]. [cite_start]TOUR ENDS[cite: 479].</div></div>
+</div>
+
+<div id="itinerary-8N9D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Guwahati Airport / Rly Station –Shillong (100 kms / 03 hrs) <span>+</span></div><div class="accordion-content">Welcome to Awesome Assam[cite: 483]. [cite_start]Meet and be assisted by our representative at the airport/Railway Station[cite: 483]. [cite_start]Proceed to **Shillong**, also called 'Scotland of the East"[cite: 484]. Reach the majestic **Umiam Lake (Barapani)**. [cite_start]You may do the water sports here (Optional)[cite: 484]. On arrival at Shillong, check in at your hotel. [cite_start]Overnight stay in Shillong[cite: 484].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Shillong Local Sightseeing <span>+</span></div><div class="accordion-content">After breakfast we proceed to the local sightseeing area of Shillong [cite: 487][cite_start]: **Laitlum Canyons** [cite: 488][cite_start], **Don Bosco Center for Indigenous Cultures** [cite: 489][cite_start], **Ward's Lake** [cite: 490][cite_start], **Cathedral Catholic Church** [cite: 491][cite_start], **Lady Hydari Park** [cite: 492][cite_start], **Golf Course**[cite: 493]. [cite_start]Overnight in Shillong[cite: 494].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Shillong - Mawlynnong - Dawki – Shillong <span>+</span></div><div class="accordion-content">Morning after breakfast depart for a whole day excursion to **Mawlynnong** Village, which has earned the distinction of being the cleanest village in India[cite: 497]. [cite_start]It is situated 90 kms from Shillong[cite: 498]. [cite_start]**Dawki** lies 2 Kms from Bangladesh[cite: 499]. [cite_start]Dawki is a small village and its main attraction is the **Umngot River** that marks the natural separation between the Khasi and the Jaintia Hills[cite: 499]. [cite_start]Overnight stay at Shillong[cite: 500].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Shillong to Cherrapunjee transfer <span>+</span></div><div class="accordion-content">After breakfast, drive to **Cherrapunjee** (4,400 ft.), the wettest place in the world[cite: 503]. [cite_start]On the way enjoy the following places: **Shillong Peak** [cite: 504][cite_start], **Elephanta Falls** [cite: 505][cite_start], **Mawkdok Valley** [cite: 506][cite_start], **Nohkalikai falls** [cite: 507][cite_start], **Dainthlen Falls**[cite: 508]. On arrival at Cherrapunjee, check in at your hotel. [cite_start]Overnight stay at Cherrapunjee[cite: 509].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Cherrapunji Local sightseeing <span>+</span></div><div class="accordion-content">After breakfast proceed for the local sightseeing [cite: 512][cite_start]: **Wei Sawdong Falls** [cite: 513][cite_start], **Seven Sisters Waterfalls** [cite: 514][cite_start], **Arwah Cave** [cite: 515][cite_start], **Nohkalikai Falls** [cite: 516][cite_start], **Mawsmai Cave**[cite: 517]. [cite_start]Overnight Stay at Cherrapunjee[cite: 518].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Shillong – Kaziranga (253 kms / 5hrs ) <span>+</span></div><div class="accordion-content">After breakfast, drive & transfer to **Kaziranga National Park**, the home of “One Horned Rhinoceros”[cite: 521]. Check in at your hotel. Evening is free for leisure. [cite_start]Overnight stay at Kaziranga[cite: 522].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Kaziranga (Safaris will be an additional charge) <span>+</span></div><div class="accordion-content">Early morning, explore Western Zone of Kaziranga National Park on the back of an **elephant**[cite: 525]. [cite_start]The Park sustains half the world's population of genetically pure Wild Water Buffaloes, over 1000 Wild elephants and perhaps the densest population of **Royal Bengal Tigers** anywhere[cite: 526]. [cite_start]Afternoon go for a **jeep safari** through the Central Zone of the National Park[cite: 529]. [cite_start]Note: Cost for elephant and Jeep Safari not inclusive[cite: 531]. [cite_start]Overnight stay at the hotel[cite: 530].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 8: Kaziranga - Guwahati (150KMs/ 5hrs) <span>+</span></div><div class="accordion-content">After Breakfast drive to **Guwahati**[cite: 534]. [cite_start]Check in at Hotel[cite: 534]. [cite_start]Evening enjoy a **River cruise** over the river **Brahmaputra** (cruise charges additional)[cite: 535]. [cite_start]Overnight in Guwahati[cite: 536]. [cite_start]NOTE: River cruise depends on availability, water level and river condition[cite: 537].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 9: Departure <span>+</span></div><div class="accordion-content">After Breakfast drive to Guwahati Airport /Station[cite: 539]. [cite_start]If time permits, visit **Kamakhya Temple**[cite: 540]. [cite_start]Temple doors remain open for devotees in the following timings - 08:00 am to 01:00 pm & 3:00 pm to 5:00 pm[cite: 540].</div></div>
+</div>
+
+<div id="itinerary-10N11D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">DAY 1: Guwahati Airport / Rly Station –Shillong (100 kms / 03 hrs) <span>+</span></div><div class="accordion-content">Welcome to Awesome Assam[cite: 544]. [cite_start]Meet and be assisted by our representative at the airport/Railway Station[cite: 544]. [cite_start]Proceed to **Shillong**, also called 'Scotland of the East"[cite: 545]. Reach the majestic **Umiam Lake (Barapani)**. [cite_start]You may do the water sports here (Optional)[cite: 545]. On arrival at Shillong, check in at your hotel. [cite_start]Overnight stay in Shillong[cite: 545].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Shillong - Mawlynnong - Dawki – Shillong <span>+</span></div><div class="accordion-content">Morning after breakfast depart for a whole day excursion to **Mawlynnong** Village, which has earned the distinction of being the cleanest village in India[cite: 548]. [cite_start]It is situated 90 kms from Shillong[cite: 549]. [cite_start]**Dawki** lies 2 Kms from Bangladesh[cite: 550]. [cite_start]Dawki is a small village and its main attraction is the **Umngot River** that marks the natural separation between the Khasi and the Jaintia Hills[cite: 550]. [cite_start]Overnight stay at Shillong[cite: 551].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Cherrapunjee Excursion <span>+</span></div><div class="accordion-content">After breakfast, drive to **Cherrapunjee** (4,400 ft.), the wettest place in the world[cite: 554]. [cite_start]On the way enjoy the following places: **Shillong Peak** [cite: 555][cite_start], **Elephanta Falls** [cite: 556][cite_start], **Mawsmai Cave** [cite: 557][cite_start], **Nohkalikai falls** [cite: 558][cite_start], **Seven Sister waterfalls**[cite: 559]. [cite_start]Back to Shillong and Overnight stay at Shillong[cite: 560].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Shillong – Kaziranga (253 kms / 5hrs ) <span>+</span></div><div class="accordion-content">After breakfast, drive & transfer to **Kaziranga National Park**, the home of “One Horned Rhinoceros”[cite: 563]. Check in at your hotel. Evening is free for leisure. [cite_start]Overnight stay at Kaziranga[cite: 564].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Kaziranga (Safaris will be an additional charge) <span>+</span></div><div class="accordion-content">Early morning, explore Western Zone of Kaziranga National Park on the back of an **elephant**[cite: 567]. [cite_start]The Park sustains half the world's population of genetically pure Wild Water Buffaloes, over 1000 Wild elephants and perhaps the densest population of **Royal Bengal Tigers** anywhere[cite: 568]. [cite_start]Afternoon go for a **jeep safari** through the Central Zone of the National Park[cite: 571]. [cite_start]Note: Cost for elephant and Jeep Safari not inclusive[cite: 573]. [cite_start]Overnight stay at the hotel[cite: 572].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Kaziranga - Dirang (140 kms 4 hrs drive) <span>+</span></div><div class="accordion-content">After an early breakfast, drive to **Dirang**[cite: 575]. [cite_start]On the way, visit **Tipi Orchidarium** situated on the banks of the river Bharali, a place of over 500 orchids[cite: 576]. [cite_start]Visit **Nag Temple**[cite: 577]. [cite_start]Dirang is also famous for **hot water springs** where people take baths to cure skin ailments[cite: 579]. [cite_start]Visit the **Dirang Dzong** and a **Monpa village**[cite: 580]. [cite_start]Overnight stay at Dirang[cite: 581].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Dirang - Tawang (155 Kms / 6 hrs) <span>+</span></div><div class="accordion-content">Early morning after breakfast drive to **Tawang**[cite: 583]. [cite_start]Enroute witness the snow capped **Sella Pass** at 14000 ft and the **Jaswant Garh War Memorial**[cite: 584]. [cite_start]Before reaching Tawang visit the **Nuranang falls**[cite: 585]. [cite_start]Overnight at Tawang[cite: 586].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 8: Sangestar Tso popularly known as Madhuri Lake and Bum La Pass (Vehicle cost will be an additional) <span>+</span></div><div class="accordion-content">After a breakfast day trip to **Sangestar Tso** which got famous as **Madhuri Lake** (12165 ft) [cite: 589] [cite_start]& **Bumla La Pass** (15,200 ft)[cite: 589]. [cite_start]A special permit is required to visit the Bum La Pass[cite: 590]. [cite_start]Permits are requested at the Office of the Deputy Commissioner in Tawang District[cite: 591]. [cite_start]Without the army stamp, visitors are not allowed through the numerous check posts along the way[cite: 592]. [cite_start]Overnight at Tawang[cite: 593].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 9: Tawang – Bomdila (180 Kms / 6 hrs) <span>+</span></div><div class="accordion-content">Early morning after breakfast transfer to **Bomdila** (8,200 ft.)[cite: 596]. [cite_start]Later visit **Gontse Rabgyaling Monastery (Upper Gonpa)**, **Thub-Chog Gatsel Ling Monastery (Lower Gonpa)**[cite: 598]. [cite_start]Bomdila offers a wonderfully panoramic view of Himalayan landscapes[cite: 598]. [cite_start]Evening you can visit the local market[cite: 599]. [cite_start]Overnight stay at Bomdila[cite: 600].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 10: Bomdila - Guwahati (270 kms - 7hrs 30mins) <span>+</span></div><div class="accordion-content">Early morning after breakfast drive to **Guwahati**[cite: 603]. [cite_start]Check in Hotel[cite: 603]. [cite_start]Evening enjoy sunset **River cruise** over the river **Brahmaputra** if time permits[cite: 604]. (Cruise is subject to weather conditions & availability, PAYMENT WILL BE DIRECTED) [cite_start][cite: 605].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 11: Kamakhya Temple Visit and Airport Drop <span>+</span></div><div class="accordion-content">Early morning after breakfast visit **Kamakhya Temple**[cite: 608]. [cite_start]Afternoon transfer to Guwahati airport / Rly[cite: 608].</div></div>
+</div>
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>
