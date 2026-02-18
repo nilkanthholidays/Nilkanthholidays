@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+  <!-- Itinerary Filter -->
+  <div class="filter-buttons">
+    <button onclick="showItinerary('4N5D')">4 Nights / 5 Days</button>
+    <button onclick="showItinerary('5N6D')">5 Nights / 6 Days</button>
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days</button>
+    <button onclick="showItinerary('9N10D')">9 Nights / 10 Days</button>
+</div>
+
+<div id="itinerary-4N5D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">Day 1: Mussoorie Arrival <span>+</span></div><div class="accordion-content">On arrival, you will be escorted to the hotel by the agent's representative[cite: 285]. [cite_start]Once you finish all the check-in formalities at the hotel, you can spend the overnight at your freedom[cite: 286]. [cite_start]You can relax and unwind at the hotel while using all the amenities available or go around the shop at Mall road or just wander enjoying the snowy weather[cite: 287]. [cite_start]At the end of the day, you can come back to the hotel and get ready for the next day[cite: 288].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Mussoorie Local Sightseeing <span>+</span></div><div class="accordion-content">After a delicious breakfast, you’ll be taken to the major attractions of the place[cite: 289]. [cite_start]**Kempty Fall**, **Gun Hill**, **George Hill Everest**, **Company Garden**, **Camel’s back**, **Mall road** and **Lal Tibba** will be your photobooths for the day[cite: 290]. [cite_start]This would be followed by the overnight stay in Mussoorie[cite: 291].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Excursion to Dhanaulti <span>+</span></div><div class="accordion-content">On this day, take an excursion to **Dhanaulti**, a peaceful hill station nearby, known for its tranquil environment and beautiful apple orchards[cite: 292]. [cite_start]Visit the **Eco Park** and enjoy the peaceful surroundings[cite: 293]. [cite_start]You can also take short nature walks here[cite: 293]. [cite_start]Return to Mussoorie in the evening for some rest[cite: 294].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Mussoorie - Dehradun <span>+</span></div><div class="accordion-content">After a delicious breakfast, you will drive you towards **Dehradun**, the capital of Uttarakhand[cite: 295]. [cite_start]After checking into your hotel, visit local attractions such as **Robber’s Cave**, **Sahastradhara**, and the **Tapkeshwar Temple**[cite: 296]. [cite_start]Spend the evening leisurely exploring the town, then relax in your hotel[cite: 297].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Departure <span>+</span></div><div class="accordion-content">After breakfast checkout from hotel and proceed Drop, Evening Lastly drop at Nearest Airport / Railway Station[cite: 298]. [cite_start]Tour end, But Sweet Memories Always Remain...[cite: 299].</div></div>
+</div>
+
+<div id="itinerary-5N6D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 01: Arrivle Delhi to Nainital <span>+</span></div><div class="accordion-content">Morning arrival at Delhi Airport / Railway Station[cite: 301]. [cite_start]Depart for **Nainital**[cite: 301]. [cite_start]On Arrival Check in at Hotel[cite: 301]. [cite_start]After fresh up enjoy strolling on the **Mall Road** for shopping[cite: 302]. [cite_start]Enjoy your dinner and an overnight stay at the hotel[cite: 303].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02: Nainital Local Sightseeing <span>+</span></div><div class="accordion-content">After breakfast, proceed for the sightseeing tour, beginning with boating at the famous **Naini Lake** and a visit to the holy **Naina Devi Temple**[cite: 305]. [cite_start]After that, visit famous picnic spots like **Naina Peak**, **Snow View**, **Lands’ End** etc enjoy day at leisure[cite: 306]. [cite_start]Dinner and overnight stay at hotel[cite: 306]. [cite_start](Note: Tempo Traveller is not allow in Mall Road Area, Client need to take union Vehicle for Nainital Local Sightseeing[cite: 307]. [cite_start]Extra Cost Sightseeing : **Bhimtal**, **Naukuchiatal**, **Kainchi Dham – Neem Karoli Baba Ashram** [cite: 308]).</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03: Nainital to Corbett <span>+</span></div><div class="accordion-content">After Breakfast, Check out from the Hotel and Drive to **Corbett**[cite: 309]. [cite_start]En route Visit **Hanuman Dham** newly open India’s largest lord hanuman temple[cite: 310]. [cite_start]Afternoon arrival at Corbett[cite: 310]. [cite_start]After this going to Visit **Corbett Jeep Safari** (Extra Cost)[cite: 311]. [cite_start]Safari Zone: **Bijrani**, **Jhirna**, **Dhela**, **Garjia**, **Durga Devi**, **Sitabani**, **Phato**[cite: 314]. (Note: JEEP SAFARI IN CORBETT @ INR 8,500/-PER JEEP EXTRA (only six person allowed in one jeep) [cite_start][cite: 325])</div></div>
+    <div class="accordion"><div class="accordion-header">Day 04: Corbett to Mussoorie <span>+</span></div><div class="accordion-content">Morning, after breakfast check out from the hotel and Drive to **Mussoorie**[cite: 315]. [cite_start]On arrival check in at Hotel[cite: 316]. [cite_start]After fresh, enjoy rest leisure day at Mussoorie **Mall Road** (By Own)[cite: 317]. [cite_start]Overnight at Mussoorie Hotel[cite: 317].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05: Mussoorie Local Sightseeing <span>+</span></div><div class="accordion-content">After Morning breakfast, going to Visit Mussoorie Local Sightseeing like **Kempty Fall**[cite: 319]. [cite_start]After enjoying the water fall of Kempty comes back to Mussoorie evening explores local Mussoorie (**Gun Hill**, **Lal tibba**, **Company Garden** and **Camel back** : Own Cost Sightseeing)[cite: 320]. [cite_start]Dinner & overnight at hotel[cite: 320]. [cite_start](Note: In Mussoorie, Vehicle is not allow in Mall Road area. So Client Need to arrange them own union Vehicle or Scooty for Local Sightseeing [cite: 321]).</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06: Mussoorie – Delhi (Departure) <span>+</span></div><div class="accordion-content">After breakfast checkout from hotel and proceed Delhi [cite: 323][cite_start], Evening Lastly drop at Delhi Airport / Railway Station[cite: 323]. [cite_start]Tour end, But Sweet Memories Always Remain...[cite: 324].</div></div>
+</div>
+
+<div id="itinerary-6N7D" class="itinerary" style="display:none;">
+    <div class="accordion"><div class="accordion-header">Day 1: Mussoorie Arrival <span>+</span></div><div class="accordion-content">On arrival, you will be escorted to the hotel by the agent's representative[cite: 326]. [cite_start]Once you finish all the check-in formalities at the hotel, you can spend the overnight at your freedom[cite: 327]. [cite_start]You can relax and unwind at the hotel while using all the amenities available or go around the shop at Mall road or just wander enjoying the snowy weather[cite: 328]. [cite_start]At the end of the day, you can come back to the hotel and get ready for the next day[cite: 329].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 2: Mussoorie Sightseeing Tour <span>+</span></div><div class="accordion-content">The second day will be an early start where you will begin your day with a sightseeing tour to the waterfall, **Kempty Falls**[cite: 330]. [cite_start]After which you will be escorted back to the hotel for breakfast[cite: 331]. [cite_start]After that experiencing the trek to the peak of **Gun Hills** and **George Hill Everest** and then for some fresh air our next spot will be **Company Garden**[cite: 332]. [cite_start]Enjoy a walk on **Camel's Backroad** after that[cite: 333]. [cite_start]Ending the evening with the most beautiful sunset at **Lal Tibba** hill[cite: 333]. [cite_start]After the tour, you will be escorted back to the hotel for dinner[cite: 334]. [cite_start]Return to hotel for overnight stay[cite: 334].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 3: Mussoorie to Haridwar <span>+</span></div><div class="accordion-content">After your comfortable overnight stay, an early morning Breakfast will be served for you to enjoy[cite: 335]. [cite_start]Head travel to **Haridwar** with a heart full of memories and a soul at peace[cite: 336]. [cite_start]On the way visit **Shatradhara water fall**, **Sai Temple**, **Parkasheshwar temple**[cite: 337]. [cite_start]At the end of the day, you can come back to the hotel and get ready for the next day[cite: 337].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 4: Haridwar – Rishikesh - Haridwar <span>+</span></div><div class="accordion-content">After a delicious breakfast, you will drive you towards **Rishikesh** for local sightseeing[cite: 338]. [cite_start]Known as the gateway to the Char Dham, this holy city is full of sacred sites, like **Lakshman Jhula**, **Ram Jhula**, **Triveni Ghat**, **Bharat Mandir**, **Nilkanth Mahadev**, **Parmarth Niketan**, **Gita Bhawan**, **Vashistha Cave** that you must visit too[cite: 339]. [cite_start]After the tour, you will be back to haridwar hotel for overnight stay[cite: 340].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 5: Haridwar Sightseeing <span>+</span></div><div class="accordion-content">After a delicious breakfast, you will begin your sightseeing tour of **Haridwar**, one of the seven holiest cities in India[cite: 341]. [cite_start]You will visit popular attractions like **Har Ki Pauri**, **Maya Devi Temple**, **Mansa Devi Temple**, **Chandi Devi Temple**, and **Shanti Kunj**[cite: 342]. [cite_start]In the evening, enjoy some local shopping before returning to the hotel for overnight stay[cite: 343].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 6: Inn Haridwar <span>+</span></div><div class="accordion-content">After Breakfast Visit Market & some shopping and visit local area enjoy time & Day leisure evening Back hotel overnight stay in hotel[cite: 344].</div></div>
+    <div class="accordion"><div class="accordion-header">Day 7: Departure <span>+</span></div><div class="accordion-content">After breakfast checkout from hotel and proceed Drop, Evening Lastly drop at Nearest Airport / Railway Station[cite: 345]. [cite_start]Tour end, But Sweet Memories Always Remain...[cite: 346].</div></div>
+</div>
+
+<div id="itinerary-9N10D" class="itinerary" style="display:none;">
+   <div class="accordion"><div class="accordion-header">Day 1: Haridwar Arrival <span>+</span></div><div class="accordion-content">Arrive at the designated reporting place, report to vehicle and proceed to **Haridwar** – An ancient temple city located on the banks of the River Ganga[cite: 347]. [cite_start]Located at the foothills of the Himalayas, Haridwar is a city of temples and ashrams and its pious ambiance envelops everyone[cite: 348]. [cite_start]In the evening experience the blissful **Ganga Aarti** (If time permits)[cite: 348].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 2: Haridwar Sightseeing <span>+</span></div><div class="accordion-content">After a delicious breakfast, you will begin your sightseeing tour of **Haridwar**, one of the seven holiest cities in India[cite: 349]. [cite_start]You will visit popular attractions like **Har Ki Pauri**, **Maya Devi Temple**, **Mansa Devi Temple**, **Chandi Devi Temple**, and **Shanti Kunj**[cite: 350]. [cite_start]In the evening, enjoy some local shopping before returning to the hotel for overnight stay[cite: 351].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 3: Haridwar - Rishikesh - Mussoorie <span>+</span></div><div class="accordion-content">In the morning visit **Gangaghat**, sit calmly on the banks of Ganga and enjoy the cool breeze from the river[cite: 352]. [cite_start]Later proceed to **Rishikesh**[cite: 353]. [cite_start]Take a photostop at **Laxman Zhulla**[cite: 353]. [cite_start]Arrive at **Mussoorie** in the evening - a hill station is in the foothills of the Garhwal Himalayan range[cite: 354].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 4: Mussoorie <span>+</span></div><div class="accordion-content">The second day will be an early start where you will begin your day with a sightseeing tour to the waterfall, **Kempty Falls**[cite: 355]. [cite_start]After which you will be escorted back to the hotel for breakfast[cite: 356]. [cite_start]After that experiencing the trek to the peak of **Gun Hills** and **George Hill Everest** and then for some fresh air our next spot will be **Company Garden**[cite: 357]. [cite_start]Enjoy a walk on **Camel's Backroad** after that[cite: 358]. [cite_start]Ending the evening with the most beautiful sunset at **Lal Tibba** hill[cite: 358]. [cite_start]After the tour, you will be escorted back to the hotel for dinner[cite: 359]. [cite_start]Return to hotel for overnight stay[cite: 359].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 5: Mussoorie to Nainital <span>+</span></div><div class="accordion-content">Proceed to **Nainital** - Commonly known as the Lake District of India[cite: 360]. [cite_start]On arrival free time for relaxation[cite: 360].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 6: Nainital Sightseeing <span>+</span></div><div class="accordion-content">Today take a cable car to experience to **Snow View Point**, which offers a picturesque view of the mighty Himalayas[cite: 361]. [cite_start]Visit **Nainadevi Temple**, an ancient Hindu Temple and enjoy boating at **Naini Lake**[cite: 362]. [cite_start]Free time for shopping in the evening[cite: 362].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 7: Ranikhet day trip <span>+</span></div><div class="accordion-content">Proceed to **Ranikhet**[cite: 363]. [cite_start]Visit **Kainchi Temple**, Pass by **Kumaon Regiment Shahid Smarak** and **Golf Course** in Ranikhet[cite: 363].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 8: Nainital to Corbett <span>+</span></div><div class="accordion-content">Today visit **Ghodakhal Bell temple** followed by a Lake tour of **Bhimtal** and **Naukuchiatal**[cite: 364]. [cite_start]Take a memorable boat ride in Naukuchiatal[cite: 365]. [cite_start]Later proceed to **Corbett Park** - The magical landscape of Corbett is well known and fabled for its tiger richness[cite: 365]. [cite_start]Established in the year 1936 as Hailey National Park, Corbett has the glory of being India's oldest and most prestigious National Park[cite: 366]. [cite_start]En-route visit **Corbett Museum**[cite: 367]. [cite_start]Arrive in Jim Corbett National Park[cite: 367].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 9: Corbett Park <span>+</span></div><div class="accordion-content">Today experience the most thrilling **Jeep safari** adventure of wildlife viewing in the region of 'Man eaters of Kumaon'[cite: 368]. [cite_start]You may spot the **Royal Bengal Tiger**, **Deer**, **Indian Hog Deer**, **Sambar Deer**, **Otter**, **Asiatic Black Bear**, **Sloth Bear**, etc[cite: 369]. [cite_start]Enjoy nature walk and live Guitar performance in the evening[cite: 369].</div></div>
+   <div class="accordion"><div class="accordion-header">Day 10: Departure <span>+</span></div><div class="accordion-content">Proceed to Delhi[cite: 370]. [cite_start]Board the flight for your home town[cite: 370]. [cite_start]Tour Concludes[cite: 370].</div></div>
+</div>
+  <!-- Similarly add other itineraries (6N7D, 7N8D, etc. from Word file) -->
+
+  <!-- Included/Excluded -->
+   <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>

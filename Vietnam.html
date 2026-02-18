@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashmir Packages - Nilkanth Holidays</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#fff;line-height:1.6;}
+
+    /* Navbar */
+    header{position:absolute;top:0;left:0;width:100%;z-index:1000;background:transparent;}
+    .navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:20px;}
+    .logo{font-size:22px;font-weight:bold;color:#fff;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav ul li a{text-decoration:none;color:#fff;font-weight:bold;font-size:18px;position:relative;transition:.3s;}
+    nav ul li a:hover{color:#ff8800;}
+    nav ul li a::after{content:"";position:absolute;bottom:-5px;left:0;width:0;height:3px;background:#ff8800;transition:.3s;}
+    nav ul li a:hover::after{width:100%;}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px;}
+    .menu-toggle span{width:25px;height:3px;background:#fff;border-radius:2px;}
+
+    @media(max-width:768px){
+      nav{display:none;width:100%;background:rgba(0,0,0,0.9);position:absolute;top:60px;left:0;padding:15px 0;}
+      nav ul{flex-direction:column;align-items:center;gap:15px;}
+      nav.active{display:flex;justify-content:center;}
+      .menu-toggle{display:flex;}
+    }
+
+    /* Hero */
+    .hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    #slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s;}
+    .slide.active{opacity:1;}
+    .hero-text{color:#fff;text-shadow:3px 3px 15px rgba(0,0,0,0.8);padding:0 15px;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;}
+    .hero-text span{color:#ffd900;}
+    @media(max-width:768px){.hero-text h1{font-size:1.8rem;}}
+
+    /* Filter Buttons */
+    .filter-buttons{text-align:center;margin:40px 20px;}
+    .filter-buttons button{
+      margin:8px;padding:10px 20px;font-size:15px;
+      cursor:pointer;border:none;border-radius:25px;
+      background:#ff8800;color:#fff;transition:.3s;
+    }
+    .filter-buttons button:hover{background:#e07200;}
+
+    /* Accordion */
+    .accordion{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      overflow:hidden;margin:12px auto;max-width:900px;}
+    .accordion-header{padding:15px 20px;cursor:pointer;background:#f7f7f7;
+      font-weight:bold;display:flex;justify-content:space-between;align-items:center;font-size:16px;}
+    .accordion-header:hover{background:#ffe6cc;}
+    .accordion-header span{color:#ff8800;font-size:18px;}
+    .accordion-content{display:none;padding:15px 20px;border-top:1px solid #eee;background:#fff;}
+
+    /* Info Box */
+    .info-box{background:#eee;padding:15px;margin:20px auto;border-radius:10px;max-width:900px;}
+    .info-box h3{margin-bottom:10px;color:#333;}
+    .info-box ul{list-style:none;}
+    .info-box ul li{margin:6px 0;font-size:15px;}
+    .included li span{color:green;font-weight:bold;}
+    .excluded li span{color:red;font-weight:bold;}
+
+    /* Footer */
+    footer{background:#000;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;}
+    footer a{color:#ff8800;text-decoration:none;}
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <header>
+      <div class="navbar">
+        <div class="logo-left" style="width:100px;">
+          <img src="okk.png" alt="Nilkanth Holidays Logo" style="width:100%;height:auto;">
+        </div>
+        <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domestic.html">Domestic</a></li>
+            <li><a href="Internatinol.html">International</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" class="slide" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="slide" />
+    </div>
+    <div class="hero-text">
+      <h1>Choose Your Package <span id="changingText">Goa</span></h1>
+    </div>
+  </section>
+<div style="font-family:Arial;text-align:center;margin:0 auto;padding:20px 0;">
+  <h2 style="font-size:26px;margin-bottom:15px;">Facilities</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:40px; font-size:22px;">
+    <div style="display:flex; align-items:center; gap:8px;">🗺️ Sightseeing</div>
+    <div style="display:flex; align-items:center; gap:8px;">🚌 Transportation</div>
+    <div style="display:flex; align-items:center; gap:8px;">🏨 Stay</div>
+    <div style="display:flex; align-items:center; gap:8px;">🍽 Dinner</div>
+    <div style="display:flex; align-items:center; gap:8px;">🥗 Breakfast</div>
+  </div>
+</div>
+ <h2 style="text-align:center;margin:30px 0;">Choose Your Itinerary (Vietnam)</h2>
+  <div class="filter-buttons">
+    <button onclick="showItinerary('6N7D')">6 Nights / 7 Days </button>
+  </div>
+
+  <div id="itinerary-6N7D" class="itinerary">
+    <div class="accordion"><div class="accordion-header">Day 01: Hanoi Arrival <span>+</span></div><div class="accordion-content">Upon reaching **Hanoi**, complete the immigration and visa on arrival process at the airport. Meet our driver and board your transfers to reach the pre-booked hotel. After check-in, you will have free time for leisure to enjoy the **Old Quarter** and the bustling local life. Return to the hotel for an overnight stay.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 02: Ninh Binh Day Trip <span>+</span></div><div class="accordion-content">After a hearty breakfast, start your journey to **Ninh Binh** province. Visit **Hoa Lu**, the Ancient Capital of the Dinh dynasty. See the age-old temples built on the grounds of the old royal palace. In the afternoon, start a 2-hour boat trip to **Tam Coc**, popularly known as “Halong Bay on land,” passing through limestone mountains and rice paddies, including 3 caves. Afterwards, climb 500 steps to **Mua Cave** (Lying Dragon Peak) for a splendid sunset view. Overnight stay in Hanoi.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 03: Hanoi To Halong Bay <span>+</span></div><div class="accordion-content">After breakfast, start your drive to **Halong Bay**, passing through the Red River Delta. Upon arrival, board a traditional cruise (junk). In the afternoon, explore the stunning caves, clean beaches, and floating villages scattered across the bay. After a delicious lunch onboard, you can join the chef's **cooking demonstration** and try traditional Vietnamese cooking skills. In the evening, enjoy the sunset on the sundeck. Options for entertainment include Movie Night or **Squid Fishing** with dinner. Overnight stay on the cruise.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 04: Halong Bay To Da Nang <span>+</span></div><div class="accordion-content">Start your day with the sunrise and a **Tai Chi lesson** on the sundeck. Have a light breakfast followed by brunch. Continue exploring Halong Bay. After returning to Hanoi, the driver will transfer you to the airport for your flight to **Da Nang**. Upon arrival in Da Nang, transfer to the hotel and check in. Use the free time to explore the vibrant nightlife, local cuisine, and night markets.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 05: Ba Na Hills Full Day Trip <span>+</span></div><div class="accordion-content">Embark on a full-day trip to **Ba Na Hills**, famous for its breathtaking mountain scenery and French colonial architecture. Enjoy a **Cable Car ride**, one of the longest and highest in the world. Visit the **Golden Bridge**, a pedestrian bridge held up by giant stone hands. At the top, explore other attractions like the **French Village**, a flower garden, an amusement park, and a Wax Museum.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 06: Marble Mountain And Hoi An Ancient Town <span>+</span></div><div class="accordion-content">Hotel pickup in the afternoon (15:00 - 15:30). Start your tour by visiting the **Non Nuoc carvings-stone village**. Conquer the **Marble Mountains**, where you can explore caves and ancient temples (like Linh Ung and Tam Thai). At 17:30, do some **local market shopping**. At 18:00, have dinner at a charming restaurant in **Hoi An**. At 19:30, stroll through the **Hoi An Ancient Town** (a UNESCO World Heritage site) and witness the city's magical transformation illuminated by colorful lanterns. At 20:00, you will be dropped back at your hotel.</div></div>
+    <div class="accordion"><div class="accordion-header">Day 07: Departure <span>+</span></div><div class="accordion-content">After a delightful breakfast, check out from the hotel and take your transfer to the airport. Your splendid Vietnam tour comes to an end.</div></div>
+</div>
+  <div class="info-box included">
+    <h3>✅ Included</h3>
+    <ul>
+      <li><span>✔</span> Accommodation as per mentioned above hotels or similar</li>
+      <li><span>✔</span> Breakfast &  Dinner</li>
+      <li><span>✔</span> Pickup & Drop </li>
+      <li><span>✔</span> Sightseeing as per itinerary </li>
+      <li><span>✔</span> Toll, Parking & Driver allowance</li>
+      <li><span>✔</span> All the sightseeing & transfers by NAC vehicle on private basis </li>
+      <li><span>✔</span>All Hotel Taxes </li>
+
+    </ul>
+  </div>
+  <div class="info-box excluded">
+    <h3>❌ Excluded</h3>
+    <ul>
+      <li><span>✘</span> 05% GST(If bill required)
+      <li><span>✘</span> Ac Not Operating In Hill Area.
+      <li><span>✘</span> not mentioned above
+      <li><span>✘</span>Any Airfare/Train fare
+      <li><span>✘</span>Entry to the Park,  Monument or Museum
+      <li><span>✘</span>Any other item which is not specified under cost inclusions
+      <li><span>✘</span>Any item, activity, or facility other than clearly mentioned within the inclusions & itinerary above
+      <li><span>✘</span>Expenses of personal nature such as table drinks, Water bottles, snacks, telephone calls, laundry, camera fees, tips to drivers, local guides, and hotel staff…etc.</li>
+      <li><span>✘</span> Rohtang Pass / Special Entry fees</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nilkanth Holidays | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    // Navbar
+    document.getElementById("menu-toggle").addEventListener("click",()=>{document.getElementById("nav").classList.toggle("active");});
+    // Slideshow
+    const slides=document.querySelectorAll(".slide");let current=0;
+    setInterval(()=>{slides[current].classList.remove("active");current=(current+1)%slides.length;slides[current].classList.add("active");},5000);
+    // Changing text
+    const places=["Goa","Kashmir","Rajasthan","Kerala"];let i=0;
+    setInterval(()=>{document.getElementById("changingText").textContent=places[i];i=(i+1)%places.length;},4000);
+    // Show itinerary
+    function showItinerary(id){
+      document.querySelectorAll('.itinerary').forEach(el=>el.style.display="none");
+      document.getElementById("itinerary-"+id).style.display="block";
+    }
+    // Accordion toggle
+    document.addEventListener("click", e=>{
+      if(e.target.classList.contains("accordion-header")){
+        const c=e.target.nextElementSibling;
+        const open=c.style.display==="block";
+        document.querySelectorAll('.accordion-content').forEach(x=>x.style.display="none");
+        document.querySelectorAll('.accordion-header span').forEach(s=>s.textContent="+");
+        if(!open){c.style.display="block";e.target.querySelector("span").textContent="-";}
+      }
+    });
+  </script>
+</body>
+</html>
